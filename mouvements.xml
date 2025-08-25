@@ -30,7 +30,7 @@
 
    <versions>
       <version>
-         <num>1.0.0</num>
+         <num>v1.0.0</num>
          <compatibility>~10.0.0</compatibility>
          <download_url>https://github.com/samdz123/Mouvements/releases/download/v1.0.0/mouvements.zip</download_url>
       </version>
@@ -64,4 +64,5 @@
       <screenshot>https://github.com/samdz123/Mouvements/blob/main/screenshot01.png</screenshot>
    </screenshots>
 </root>
+
 
