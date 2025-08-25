@@ -1,4 +1,4 @@
-# GLPI Movements Plugin
+# GLPI Mouvements Plugin
 
 ## Description
 Le plugin **Mouvements** permet de suivre et d’afficher l’historique des mouvements
@@ -14,5 +14,6 @@ Il ajoute un onglet *Mouvements* dans les fiches des matériels pour visualiser 
 - Filtrage des mouvements par type (Lieu, Utilisateur, Statut, État).
 - Export du tableau des mouvements vers **Excel/CSV**.
 - Compatibilité ** 10.x**.
+
 
 
