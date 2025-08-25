@@ -1,0 +1,66 @@
+<root>
+   <name>Mouvements</name>
+   <key>mouvements</key>
+   <state>stable</state>
+   <logo>https://github.com/samdz123/Mouvements/blob/main/logo.png</logo>
+
+   <description>
+      <short>
+         <en>Track equipment movements in GLPI</en>
+         <fr>Suivi des mouvements d'équipements dans GLPI</fr>
+      </short>
+      <long>
+         <en>
+            This plugin allows you to view and export equipment movement history (location, user, status, state) directly from GLPI object tabs.
+         </en>
+         <fr>
+            Ce plugin permet de visualiser et d’exporter l’historique des mouvements des équipements (lieu, utilisateur, statut, état) directement depuis les fiches GLPI.
+         </fr>
+      </long>
+   </description>
+
+   <homepage>https://github.com/samdz123/Mouvements</homepage>
+   <download>https://github.com/samdz123/Mouvements/releases/download/v1.0.0/mouvements.zip</download>
+   <issues>https://github.com/samdz123/Mouvements/issues</issues>
+   <readme>https://github.com/samdz123/Mouvements/blob/main/README.md</readme>
+
+   <authors>
+      <author>Saad Meslem</author>
+   </authors>
+
+   <versions>
+      <version>
+         <num>1.0.0</num>
+         <compatibility>>=10.0,<11.0</compatibility>
+         <download_url>https://github.com/samdz123/Mouvements/releases/download/v1.0.0/mouvements.zip</download_url>
+      </version>
+   </versions>
+
+   <langs>
+      <lang>en_GB</lang>
+      <lang>fr_FR</lang>
+   </langs>
+
+   <license>GPL v3+</license>
+
+   <tags>
+      <en>
+         <tag>equipment</tag>
+         <tag>tracking</tag>
+         <tag>movements</tag>
+		 <tag>log</tag>
+      </en>
+      <fr>
+         <tag>équipements</tag>
+         <tag>mouvements</tag>
+		 <tag>mouvement</tag>
+         <tag>historique</tag>
+		 <tag>journal</tag>
+		 <tag>traçabilité</tag>
+      </fr>
+   </tags>
+
+   <screenshots>
+      <screenshot>https://github.com/samdz123/Mouvements/blob/main/screenshot01.png</screenshot>
+   </screenshots>
+</root>
