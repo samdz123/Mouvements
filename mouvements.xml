@@ -2,7 +2,7 @@
    <name>Mouvements</name>
    <key>mouvements</key>
    <state>stable</state>
-   <logo>https://raw.githubusercontent.com/samdz123/Mouvements/blob/main/logo.png</logo>
+   <logo>https://raw.githubusercontent.com/samdz123/mouvements/main/logo.png</logo>
 
    <description>
       <short>
@@ -64,6 +64,7 @@
       <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot01.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
