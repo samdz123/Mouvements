@@ -45,17 +45,18 @@
 
    <tags>
       <fr>
-         <tag>équipements</tag>
-         <tag>mouvements</tag>
-		 <tag>mouvement</tag>
+         <tag>mouvement</tag>
+		 <tag>changement</tag>
          <tag>historique</tag>
 		 <tag>journal</tag>
 		 <tag>traçabilité</tag>
+		 <tag>équipements</tag>
+		<tag>déplacement</tag>
       </fr>
 	  <en>
          <tag>equipment</tag>
          <tag>tracking</tag>
-         <tag>movements</tag>
+         <tag>moving</tag>
 		 <tag>log</tag>
       </en>
    </tags>
@@ -64,6 +65,7 @@
       <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot01.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
