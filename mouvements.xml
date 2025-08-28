@@ -44,7 +44,6 @@
    <license>GPL v3+</license>
 
    <tags>
-      <tags>
    <fr>
       <tag>mouvement</tag>
       <tag>déplacement</tag>
@@ -70,13 +69,13 @@
       <tag>assignment</tag>
       <tag>tracking</tag>
    </en>
-</tags>
    </tags>
 
    <screenshots>
       <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot01.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
