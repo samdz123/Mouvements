@@ -11,10 +11,10 @@
       </short>
       <long>
          <en>
-            This plugin allows you to view and export equipment movement history (location, user, status, state) directly from GLPI object tabs.
+            This plugin allows you to view and export equipment movement history (location, user, status) directly from GLPI object tabs.
          </en>
          <fr>
-            Ce plugin permet de visualiser et d’exporter l’historique des mouvements des équipements (lieu, utilisateur, statut, état) directement depuis les fiches GLPI.
+            Ce plugin permet de visualiser et d’exporter l’historique des mouvements des équipements (lieu, utilisateur, statut) directement depuis les fiches GLPI.
          </fr>
       </long>
    </description>
@@ -31,7 +31,7 @@
    <versions>
       <version>
          <num>v1.0.0</num>
-         <compatibility>~10.0.0</compatibility>
+         <compatibility>~10.0.3</compatibility>
          <download_url>https://github.com/samdz123/Mouvements/releases/download/v1.0.0/mouvements.zip</download_url>
       </version>
    </versions>
@@ -64,6 +64,7 @@
       <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot01.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
