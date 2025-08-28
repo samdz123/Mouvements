@@ -37,19 +37,13 @@
    </versions>
 
    <langs>
+	  <lang>fr_FR</lang>
       <lang>en_GB</lang>
-      <lang>fr_FR</lang>
    </langs>
 
    <license>GPL v3+</license>
 
    <tags>
-      <en>
-         <tag>equipment</tag>
-         <tag>tracking</tag>
-         <tag>movements</tag>
-		 <tag>log</tag>
-      </en>
       <fr>
          <tag>équipements</tag>
          <tag>mouvements</tag>
@@ -58,12 +52,19 @@
 		 <tag>journal</tag>
 		 <tag>traçabilité</tag>
       </fr>
+	  <en>
+         <tag>equipment</tag>
+         <tag>tracking</tag>
+         <tag>movements</tag>
+		 <tag>log</tag>
+      </en>
    </tags>
 
    <screenshots>
       <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot01.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
