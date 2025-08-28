@@ -44,28 +44,39 @@
    <license>GPL v3+</license>
 
    <tags>
-      <fr>
-         <tag>mouvement</tag>
-		 <tag>changement</tag>
-         <tag>historique</tag>
-		 <tag>suivi</tag>
-		 <tag>journal</tag>
-		 <tag>traçabilité</tag>
-		 <tag>équipements</tag>
-		<tag>déplacement</tag>
-      </fr>
-	  <en>
-         <tag>equipment</tag>
-         <tag>tracking</tag>
-         <tag>moving</tag>
-		 <tag>log</tag>
-      </en>
+      <tags>
+   <fr>
+      <tag>mouvement</tag>
+      <tag>déplacement</tag>
+      <tag>changement</tag>
+      <tag>historique</tag>
+      <tag>journal</tag>
+      <tag>traçabilité</tag>
+      <tag>équipements</tag>
+      <tag>emplacement</tag>
+      <tag>affectation</tag>
+	  <tag>suivi</tag>   
+   </fr>
+   <en>
+      <tag>movement</tag>
+      <tag>moving</tag>
+      <tag>change</tag>
+      <tag>history</tag>
+      <tag>log</tag>
+      <tag>traceability</tag>
+      <tag>equipment</tag>
+      <tag>location</tag>
+      <tag>assignment</tag>
+      <tag>tracking</tag>
+   </en>
+</tags>
    </tags>
 
    <screenshots>
       <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot01.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
