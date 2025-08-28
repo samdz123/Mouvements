@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 if (!defined('GLPI_ROOT')) {
    die("Sorry. You can't access this file directly");
 }
@@ -38,45 +38,7 @@ class PluginMouvementsMouvement extends CommonGLPI {
 	} else {
     $Mouvement_filter = $_SESSION['plugin_Mouvements_filter'] ?? '';
 	}
-	/*
-      // ---- Affichage du menu de filtre ----
-      echo "<form method='get' action=''>";
-      echo "<input type='hidden' name='id' value='".$item->getID()."'>";
-      echo "<input type='hidden' name='itemtype' value='".$item->getType()."'>";
-      echo "<input type='hidden' name='tab' value='PluginMouvementsMouvement\$1'>";
-      echo "<label for='Mouvement_filter'>".__('Filtrer par type :','Mouvements')."</label> ";
-      echo "<select name='Mouvement_filter' id='Mouvement_filter' onchange='this.form.submit()'>";
-      $opts = [
-         ''            => __('--- Tous ---','Mouvements'),
-         'lieu'        => __('Lieu','Mouvements'),
-         'statut'      => __('Statut','Mouvements'),
-         'user' => __('Utilisateur','Mouvements'),
-         'etat'        => __('Etat','Mouvements')
-      ];
-      foreach ($opts as $val => $label) {
-         $sel = ($Mouvement_filter === $val) ? "selected" : "";
-         echo "<option value='$val'>$label</option>";
-      }
-      echo "</select>";
-      echo "</form><br>";*/
-	  
-//echo "Mouvement filter: ";
-//var_dump($Mouvement_filter);
-      // ---- Construction de la condition SQL ----
-   /*   $extraWhere  = "l.items_id = $items_id";
-      if ($Mouvement_filter == 'lieu') {
-          $extraWhere .= " AND l.id_search_option = 3";
-      } else if ($Mouvement_filter == 'statut') {
-         $extraWhere .= " AND l.id_search_option = 31";
-      } else if ($Mouvement_filter == 'user') {
-         $extraWhere .= " AND l.id_search_option = 70";
-      } else if ($Mouvement_filter == 'etat') {
-         $extraWhere .= " AND l.id_search_option = 76670";
-      }else if (empty($Mouvement_filter)) {
-		$extraWhere .= " AND l.id_search_option IN (3,31,70,76670)";
-	}*/
-
-      //$sql = self::buildGlobalSQL($extraWhere, 200);
+	
       $res = $DB->query($sql);
 
       if ($DB->numrows($res) == 0) {
@@ -107,7 +69,6 @@ echo '</div>';
          . '<th>' . __('Utilisateur à cet instant','Mouvements') . '</th>'
          . '<th>' . __('Lieu à cet instant','Mouvements') . '</th>'
          . '<th>' . __('Statut à cet instant','Mouvements') . '</th>'
-         . '<th>' . __('État à cet instant','Mouvements') . '</th>'
          . '<th>' . __('Modificateur','Mouvements') . '</th>'
 		 . '<th>' . __('N°Inv','Mouvements') . '</th>'
          . '</tr>';
@@ -120,8 +81,7 @@ echo '</div>';
 			echo  '<td>' . htmlspecialchars(self::cleanValue($row['nouvelle_valeur'] ?? '')) . '</td>';	
 			echo  '<td>' . htmlspecialchars(self::cleanValue($row['Utilisateur_a_cet_instant'] ?? '')) . '</td>';
 			echo  '<td>' . htmlspecialchars(self::cleanValue($row['Lieu_a_cet_instant'] ?? '')) . '</td>';
-			echo  '<td>' . htmlspecialchars(self::cleanValue($row['Statut_a_cet_instant'] ?? '')) . '</td>';
-			echo  '<td>' . htmlspecialchars(self::cleanValue($row['Etat_a_cet_instant'] ?? '')) . '</td>';		
+			echo  '<td>' . htmlspecialchars(self::cleanValue($row['Statut_a_cet_instant'] ?? '')) . '</td>';		
 			echo  '<td>' . htmlspecialchars(self::cleanValue($row['Modificateur'] ?? '')) . '</td>';
 			echo  '<td>' . htmlspecialchars(self::cleanValue($row['Inventaire'] ?? '')) . '</td>';		
             echo  '</tr>';
@@ -204,7 +164,6 @@ input.addEventListener("keyup", function() {
          WHEN 3 THEN 'Lieu'
          WHEN 31 THEN 'Statut'
          WHEN 70 THEN 'Utilisateur'
-         WHEN 76670 THEN 'Etat'
          ELSE 'Autre'
       END AS type_mouvement,
       l.old_value AS ancienne_valeur,
@@ -224,10 +183,7 @@ input.addEventListener("keyup", function() {
          ORDER BY l3.date_mod DESC LIMIT 1) AS Lieu_a_cet_instant,
       (SELECT l4.new_value FROM glpi_logs l4
          WHERE l4.itemtype = '".$currentType."' AND l4.items_id = c.id AND l4.id_search_option = 31 AND l4.date_mod <= l.date_mod
-         ORDER BY l4.date_mod DESC LIMIT 1) AS Statut_a_cet_instant,
-      (SELECT l5.new_value FROM glpi_logs l5
-         WHERE l5.itemtype = '".$currentType."' AND l5.items_id = c.id AND l5.id_search_option = 76670 AND l5.date_mod <= l.date_mod
-         ORDER BY l5.date_mod DESC LIMIT 1) AS Etat_a_cet_instant
+         ORDER BY l4.date_mod DESC LIMIT 1) AS Statut_a_cet_instant
    FROM glpi_logs l
    JOIN " . $m['table'] . " c ON (l.items_id = c.id)
    LEFT JOIN " . $m['typetable'] . " ct ON (c.".$m['typecol']." = ct.id)
@@ -236,7 +192,7 @@ input.addEventListener("keyup", function() {
    LEFT JOIN glpi_groups g ON (u.groups_id = g.id)
    WHERE l.itemtype = '".$currentType."' 
      AND l.items_id = $currentId
-     AND l.id_search_option IN (3,31,70,76670)
+     AND l.id_search_option IN (3,31,70)
    ORDER BY l.date_mod DESC
    LIMIT " . (int)$limit;
 
