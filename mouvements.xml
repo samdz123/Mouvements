@@ -48,6 +48,7 @@
          <tag>mouvement</tag>
 		 <tag>changement</tag>
          <tag>historique</tag>
+		 <tag>suivi</tag>
 		 <tag>journal</tag>
 		 <tag>traçabilité</tag>
 		 <tag>équipements</tag>
@@ -65,6 +66,7 @@
       <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot01.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
