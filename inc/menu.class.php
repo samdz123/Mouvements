@@ -1,21 +1,17 @@
 <?php
-if (!defined('GLPI_ROOT')) {
-   die("Sorry. You can't access directly to this file");
-}
 
 class PluginMouvementsMenu extends CommonGLPI {
 
-   static function getMenuName() {
-      return __('Mouvements équipements', 'Mouvements');
-   }
+    static function getMenuName() {
+        return __('Mouvements', 'mouvements');
+    }
 
-   static function getMenuContent() {
-      $menu = [];
-
-      $menu['title'] = self::getMenuName();
-      $menu['page']  = '/plugins/Mouvements/front/report.php';
-      $menu['icon']  = 'ti ti-arrows-exchange'; // icône si dispo
-
-      return $menu;
-   }
+    static function getMenuContent() {
+        $menu = [];
+        $menu['title'] = self::getMenuName();
+        $menu['page']  = '/plugins/mouvements/front/reporting.php';  
+        $menu['icon']  = 'fas fa-arrows-alt-h'; // Icône pour les mouvements
+        
+        return $menu;
+    }
 }
