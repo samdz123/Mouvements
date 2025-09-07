@@ -78,6 +78,8 @@
    <langs>
 	  <lang>fr_FR</lang>
       <lang>en_GB</lang>
+	   <lang>es_ES</lang>
+	   <lang>ar_SA</lang>
    </langs>
 
    <license>GPL v3+</license>
@@ -141,6 +143,7 @@
 	  <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot04.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
