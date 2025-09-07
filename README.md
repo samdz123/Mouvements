@@ -1,18 +1,17 @@
 # GLPI Mouvements Plugin
 
 ## Description
-Le plugin **Mouvements** permet de suivre et d’afficher l’historique des mouvements
-des équipements (ordinateurs, imprimantes, moniteurs, périphériques) dans GLPI.  
-Il ajoute un onglet *Mouvements* dans les fiches des matériels pour visualiser :
-- les changements de lieu
-- les changements d’utilisateur
-- les changements de statut
+** Movements ** plugin presents a clear table view focused on essential movements:
+         - Location changes
+         - User assignments
+         - Status updates
+    * You can explore these movements in a grid view, with filters, search, and export to Excel.
+    * Features:
+         - Movements ** tab ** on Computer, Monitor, Printer, and Peripheral items.
+         - Movements dashboard in ** Tools menu ** enabling you to filter by multiple criteria (dates, inventory, location, user, and status), and also export the results to Excel.
 
-## Fonctionnalités
-- Onglet **Mouvements** sur les fiches `Ordianteur`, `Monitor`, `Imprimante`, `Périphérique`.
-- Filtrage des mouvements par type (Lieu, Utilisateur, Statut, État).
-- Export du tableau des mouvements vers **Excel/CSV**.
-- Compatibilité ** 10.x**.
+- Compatibilité ** 10.0.x**.
+
 
 
 
