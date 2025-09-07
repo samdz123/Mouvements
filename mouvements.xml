@@ -71,7 +71,7 @@
 	   <version>
          <num>v1.1.0</num>
          <compatibility>~10.0.x</compatibility>
-         <download_url>https://github.com/samdz123/Mouvements/releases/download/v1.1.0/mouvements.zip</download_url>
+         <download_url>https://github.com/samdz123/Mouvements/releases/download/v1.1.0/mouvements.1.1.0.zip</download_url>
       </version>
    </versions>
 
@@ -141,6 +141,7 @@
 	  <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot04.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
