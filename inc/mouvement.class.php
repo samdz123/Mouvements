@@ -6,9 +6,12 @@ if (!defined('GLPI_ROOT')) {
 class PluginMouvementsMouvement extends CommonGLPI {
 
    static function getTypeName($nb = 0) {
-      return __('Mouvements', 'Mouvements');
+      return __('Mouvements', 'mouvements');
    }
-
+   
+   
+   
+   
    function getTabNameForItem(CommonGLPI $item, $withtemplate = 0) {
       if (in_array($item->getType(), ['Computer','Printer','Monitor','Peripheral'])) {
          return self::getTypeName();
@@ -20,7 +23,8 @@ class PluginMouvementsMouvement extends CommonGLPI {
       self::renderItemTab($item);
       return true;
    }
-
+   
+   
    public static function renderItemTab($item) {
       global $DB;
 
@@ -53,29 +57,39 @@ echo '<div style="text-align:center; font-size:20px; font-weight:bold;">MOUVEMEN
 
 echo '<div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">';
 echo '  <div style="display:flex; align-items:center; gap:10px;">';
-echo '    <label for="tableFilter" style="font-weight:bold;">Filtrer le tableau :</label>';
-echo '    <input type="text" id="tableFilter" placeholder="Tapez pour filtrer..." style="max-width:200px;">';
+echo '    <label for="tableFilter" style="font-weight:bold;">' . __('Filtrer le tableau :','mouvements') . '</label>';
+echo '    <input type="text" id="tableFilter" placeholder="' . __('Tapez pour filtrer...','mouvements') . '" style="max-width:200px;">';
 echo '  </div>';
-echo '  <button id="exportExcel" class="vsubmit">' . __('Exporter vers Excel','Mouvements') . '</button>';
+echo '  <button id="exportExcel" class="vsubmit">' . __('Exporter vers Excel','mouvements') . '</button>';
 echo '</div>';
 
       echo '<div class="spaced">';
       echo '<table id="MouvementsTable" class="tab_cadre_fixehov">';
       echo '<tr>'
-         . '<th>' . __('Type mouvement','Mouvements') . '</th>'
-         . '<th>' . __('Date','Mouvements') . '</th>'
-         . '<th>' . __('Ancienne valeur','Mouvements') . '</th>'
-         . '<th>' . __('Nouvelle valeur','Mouvements') . '</th>'
-         . '<th>' . __('Utilisateur à cet instant','Mouvements') . '</th>'
-         . '<th>' . __('Lieu à cet instant','Mouvements') . '</th>'
-         . '<th>' . __('Statut à cet instant','Mouvements') . '</th>'
-         . '<th>' . __('Modificateur','Mouvements') . '</th>'
-		 . '<th>' . __('N°Inv','Mouvements') . '</th>'
+         . '<th>' . __('Type mouvement','mouvements') . '</th>'
+         . '<th>' . __('Date','mouvements') . '</th>'
+         . '<th>' . __('Ancienne valeur','mouvements') . '</th>'
+         . '<th>' . __('Nouvelle valeur','mouvements') . '</th>'
+         . '<th>' . __('Utilisateur@instant','mouvements') . '</th>'
+         . '<th>' . __('Lieu@instant','mouvements') . '</th>'
+		 . '<th>' . __('Statut@instant','mouvements') . '</th>'
+         . '<th>' . __('Modificateur','mouvements') . '</th>'
+		 . '<th>' . __('N°Inv','mouvements') . '</th>'
          . '</tr>';
 
+
+
       while ($row = $DB->fetchAssoc($res)) {
+		  
+		  $typeMap2 = [
+   3  => __('Lieu', 'mouvements'),
+   31 => __('Statut', 'mouvements'),
+   70 => __('Utilisateur', 'mouvements')
+];
+
+$label = $typeMap2[$row['type_mouvement_code']] ?? __('Autre', 'mouvements');
          echo '<tr>';
-			echo  '<td>' . htmlspecialchars(self::cleanValue($row['type_mouvement'] ?? '')) . '</td>';
+			echo  '<td>' . self::cleanValue($label ?? '') . '</td>';
 			echo  '<td>' . htmlspecialchars(self::cleanValue($row['Date_mouvement'] ?? '')) . '</td>';	
 			echo  '<td>' . htmlspecialchars(self::cleanValue($row['ancienne_valeur'] ?? '')) . '</td>';
 			echo  '<td>' . htmlspecialchars(self::cleanValue($row['nouvelle_valeur'] ?? '')) . '</td>';	
@@ -137,8 +151,7 @@ input.addEventListener("keyup", function() {
 
 
    // ================== SQL builder ==================
-   private static function buildGlobalSQL($currentType, $currentId, $limit = 1000) {
-//var_dump($currentType);	   
+   private static function buildGlobalSQL($currentType, $currentId, $limit = 1000) {   
 	   
    $blocks = [
       'Computer'   => ['table' => 'glpi_computers',   'typecol' => 'computertypes_id',   'modelcol' => 'computermodels_id',   'typetable' => 'glpi_computertypes',   'modeltable' => 'glpi_computermodels'],
@@ -166,6 +179,7 @@ input.addEventListener("keyup", function() {
          WHEN 70 THEN 'Utilisateur'
          ELSE 'Autre'
       END AS type_mouvement,
+	  l.id_search_option AS type_mouvement_code,
       l.old_value AS ancienne_valeur,
       l.new_value AS nouvelle_valeur,
       g.name AS Structure_Utilisateur_actuel,
