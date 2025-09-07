@@ -1,8 +1,0 @@
-msgid "Mouvements"
-msgstr "Mouvements"
-
-msgid "Filtrer"
-msgstr "Filtrer"
-
-msgid "Mouvements équipements"
-msgstr "Mouvements équipements"
