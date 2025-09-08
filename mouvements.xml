@@ -11,7 +11,7 @@
       </short>
       <long>
          <en>
-    * Movements plugin presents a clear table view focused on essential movements journal:
+    * Movements plugin presents a clear table view focused on the history of essential movements:
          - Location changes
          - User assignments
          - Status updates
@@ -143,6 +143,7 @@
 	  <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot04.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
