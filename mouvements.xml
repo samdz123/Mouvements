@@ -21,7 +21,7 @@
          - Movements dashboard in Tools menu enabling you to filter by multiple criteria (dates, inventory, location, user, and status), and also export the results to Excel.
 		</en>
          <fr>
-    * Le plugin Mouvements présente une vue en tableau claire, centrée sur l''historique des mouvements essentiels :
+    * Le plugin Mouvements présente une vue en tableau claire, centrée sur l’historique des mouvements essentiels :
          - Changements de lieu
          - Affectations d’utilisateur
          - Mises à jour de statut
@@ -143,6 +143,7 @@
 	  <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot04.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
