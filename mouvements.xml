@@ -63,13 +63,13 @@
    </authors>
 
    <versions>
-      <version>
-         <num>v1.0.0</num>
+	   <version>
+         <num>v1.1.0</num>
          <compatibility>~10.0.x</compatibility>
          <download_url>https://github.com/samdz123/Mouvements/releases</download_url>
       </version>
-	   <version>
-         <num>v1.1.0</num>
+      <version>
+         <num>v1.0.0</num>
          <compatibility>~10.0.x</compatibility>
          <download_url>https://github.com/samdz123/Mouvements/releases</download_url>
       </version>
@@ -143,6 +143,7 @@
 	  <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot04.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
