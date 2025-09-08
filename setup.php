@@ -1,31 +1,34 @@
-﻿<?php
+<?php
 
-function plugin_init_Mouvements() {
+function plugin_init_mouvements() {
    global $PLUGIN_HOOKS;
 
    $PLUGIN_HOOKS['csrf_compliant']['mouvements'] = true;
 
-   // Déclare la classe pour ajouter un onglet
+   
+   // Ajout de l'onglet "Mouvements" sur les fiches équipements
    $types = ['Computer','Printer','Monitor','Peripheral'];
    foreach ($types as $type) {
       CommonGLPI::registerStandardTab($type, 'PluginMouvementsMouvement');
    }
-
-   // Page de configuration éventuelle (optionnelle)
-   // $PLUGIN_HOOKS['config_page']['Mouvements'] = 'front/config.form.php';
+   
+         if (Session::getCurrentInterface()) {
+         
+            $PLUGIN_HOOKS['menu_toadd']['mouvements'] = ['tools' => 'PluginMouvementsMenu'];
+      }
+   
 }
 
 /**
  * Métadonnées du plugin
  */
-function plugin_version_Mouvements() {
+function plugin_version_mouvements() {
    return [
-      'name'           => __('Mouvements', 'Mouvements'),
+      'name'           => __('Mouvements', 'mouvements'),
       'version'        => '1.0.0',
       'author'         => 'Saad Meslem',
       'license'        => 'GPLv3+',
       'homepage'       => 'https://tonsite.example',
-      'minGlpiVersion' => '10.0.0',
       'requirements'   => [
          'glpi' => [
             'min' => '10.0.0',
@@ -35,16 +38,17 @@ function plugin_version_Mouvements() {
    ];
 }
 
-/**
- * Installation
- */
-function plugin_Mouvements_install() {
+function plugin_mouvements_install() {
+   return true;
+}
+
+function plugin_mouvements_uninstall() {
    return true;
 }
 
 /**
- * Désinstallation
+ * Hook pour ajouter les droits du plugin.
+ *
+ * @param array $rights
+ * @return array
  */
-function plugin_Mouvements_uninstall() {
-   return true;
-}
