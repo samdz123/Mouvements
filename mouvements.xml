@@ -12,7 +12,7 @@
       <long>
          <en>
     * Movements plugin presents a clear table view focused 
-	on the history of essential movements:
+	  on the history of essential movements:
          - Location changes
          - User assignments
          - Status updates
@@ -20,17 +20,17 @@
 	with filters, search, and export to Excel.
     * Features:
          - Movements tab on Computer, Monitor, Printer, 
-		and Peripheral items.
+		   and Peripheral items.
          - Movements dashboard in Tools menu enabling 
-		you to filter 
+		   you to filter 
 		   by multiple criteria (dates, inventory, 
-		location, user, and status),and also export 
-		the results to Excel.
+		   location, user, and status),and also export 
+		   the results to Excel.
 		</en>
          <fr>
     * Le plugin Mouvements présente une vue en tableau
-	claire, centrée sur l’historique des mouvements 
-	essentiels :
+	  claire, centrée sur l’historique des mouvements 
+	  essentiels :
          - Changements de lieu
          - Affectations d’utilisateur
          - Mises à jour de statut
@@ -39,11 +39,11 @@
 	  recherche et exportation vers Excel.
     * Fonctionnalités :
          - Onglet Mouvements sur les fiches Ordinateur, 
-		Écran, Imprimante et Périphérique.
+		   Écran, Imprimante et Périphérique.
          - Tableau de bord Mouvements dans le menu Outils 
-		permettant de filtrer selon plusieurs critères 
-		(dates, inventaire, lieu, utilisateur et statut), 
-		et également d’exporter les résultats vers Excel.
+		   permettant de filtrer selon plusieurs critères 
+		 (dates, inventaire, lieu, utilisateur et statut), 
+		 et également d’exporter les résultats vers Excel.
 		</fr>
 		  <es>
     * El plugin Movimientos presenta una vista en tabla clara,
@@ -165,6 +165,7 @@
 	  <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot04.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
