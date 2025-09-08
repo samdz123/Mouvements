@@ -1,0 +1,122 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: mouvements 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-01 00:00+0000\n"
+"PO-Revision-Date: 2025-09-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Spanish\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Mouvements"
+msgstr "Movimientos"
+
+msgid "Filtres du rapport"
+msgstr "Filtros del informe"
+
+msgid "Date début"
+msgstr "Fecha de inicio"
+
+msgid "Date fin"
+msgstr "Fecha de fin"
+
+msgid "Type de rapport"
+msgstr "Tipo de informe"
+
+msgid "Utilisateur"
+msgstr "Usuario"
+
+msgid "Lieu"
+msgstr "Ubicación"
+
+msgid "Statut"
+msgstr "Estado"
+
+msgid "Numéro inventaire"
+msgstr "Número de inventario"
+
+msgid "Aucun mouvement trouvé"
+msgstr "Ningún movimiento encontrado"
+
+msgid "Type équipement"
+msgstr "Tipo de equipo"
+
+msgid "N° Inv"
+msgstr "N° Inv"
+
+msgid "Nom"
+msgstr "Nombre"
+
+msgid "Type mouvement"
+msgstr "Tipo de movimiento"
+
+msgid "Date"
+msgstr "Fecha"
+
+msgid "Ancienne valeur"
+msgstr "Valor anterior"
+
+msgid "Nouvelle valeur"
+msgstr "Nuevo valor"
+
+msgid "Utilisateur@instant"
+msgstr "Usuario en ese momento"
+
+msgid "Lieu@instant"
+msgstr "Ubicación en ese momento"
+
+msgid "Statut@instant"
+msgstr "Estado en ese momento"
+
+msgid "Modificateur"
+msgstr "Modificador"
+
+msgid "Exporter vers Excel"
+msgstr "Exportar a Excel"
+
+msgid "Générer"
+msgstr "Generar"
+
+msgid "Clé de mouvement"
+msgstr "Clave de movimiento"
+
+msgid "Filtres des mouvements"
+msgstr "Filtros de movimientos"
+
+msgid "Tous les types"
+msgstr "Todos los tipos"
+
+msgid "Par utilisateur"
+msgstr "Por usuario"
+
+msgid "Par inventaire"
+msgstr "Por inventario"
+
+msgid "Par lieu"
+msgstr "Por ubicación"
+
+msgid "Par statut"
+msgstr "Por estado"
+
+msgid "Tapez pour filtrer..."
+msgstr "Escriba para filtrar..."
+
+msgid "Filtrer le tableau :"
+msgstr "Filtrar la tabla :"
+
+msgid "Ordinateur"
+msgstr "Ordenador"
+
+msgid "Ecran"
+msgstr "Pantalla"
+
+msgid "Imprimante"
+msgstr "Impresora"
+
+msgid "Périphérique"
+msgstr "Periférico"
+
+

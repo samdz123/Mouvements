@@ -1,0 +1,114 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: en_GB\n"
+
+msgid "Mouvements"
+msgstr "Movements"
+
+msgid "Filtres du rapport"
+msgstr "Report filters"
+
+msgid "Date début"
+msgstr "Start date"
+
+msgid "Date fin"
+msgstr "End date"
+
+msgid "Type de rapport"
+msgstr "Report type"
+
+msgid "Utilisateur"
+msgstr "User"
+
+msgid "Lieu"
+msgstr "Location"
+
+msgid "Statut"
+msgstr "Status"
+
+msgid "Numéro inventaire"
+msgstr "Inventory number"
+
+msgid "Aucun mouvement trouvé"
+msgstr "No movement found"
+
+msgid "Type équipement"
+msgstr "Equipment type"
+
+msgid "N° Inv"
+msgstr "Inventory ID"
+
+msgid "Nom"
+msgstr "Name"
+
+msgid "Type mouvement"
+msgstr "Movement type"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "Ancienne valeur"
+msgstr "Old value"
+
+msgid "Nouvelle valeur"
+msgstr "New value"
+
+msgid "Utilisateur@instant"
+msgstr "User@time"
+
+msgid "Lieu@instant"
+msgstr "Location@time"
+
+msgid "Statut@instant"
+msgstr "Status@time"
+
+msgid "Modificateur"
+msgstr "Modifier"
+
+msgid "Exporter vers Excel"
+msgstr "Export to Excel"
+
+msgid "Générer"
+msgstr "Generate"
+
+msgid "Clé de mouvement"
+msgstr "Movement key"
+
+msgid "Filtres des mouvements"
+msgstr "Movements filters"
+
+msgid "Tous les types"
+msgstr "All types"
+
+msgid "Par utilisateur"
+msgstr "By user"
+
+msgid "Par inventaire"
+msgstr "By Inventory"
+
+msgid "Par lieu"
+msgstr "By location"
+
+msgid "Par statut"
+msgstr "By status"
+
+msgid "Tapez pour filtrer..."
+msgstr "Type to filter..."
+
+msgid "Filtrer le tableau :"
+msgstr "Filter the table"
+
+msgid "Ordinateur"
+msgstr "Computer"
+
+msgid "Ecran"
+msgstr "Monitor"
+
+msgid "Imprimante"
+msgstr "Printer"
+
+msgid "Périphérique"
+msgstr "Peripheral"
+
+

@@ -1,0 +1,68 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: fr_FR\n"
+
+msgid "Mouvements"
+msgstr "Mouvements"
+
+msgid "Filtres du rapport"
+msgstr "Filtres du rapport"
+
+msgid "Date début"
+msgstr "Date début"
+
+msgid "Date fin"
+msgstr "Date fin"
+
+msgid "Type de rapport"
+msgstr "Type de rapport"
+
+msgid "Utilisateur"
+msgstr "Utilisateur"
+
+msgid "Lieu"
+msgstr "Lieu"
+
+msgid "Statut"
+msgstr "Statut"
+
+msgid "Numéro inventaire"
+msgstr "Numéro inventaire"
+
+msgid "Aucun mouvement trouvé"
+msgstr "Aucun mouvement trouvé"
+
+msgid "Type équipement"
+msgstr "Type équipement"
+
+msgid "N° Inv"
+msgstr "N° Inv"
+
+msgid "Nom"
+msgstr "Nom"
+
+msgid "Type mouvement"
+msgstr "Type mouvement"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "Ancienne valeur"
+msgstr "Ancienne valeur"
+
+msgid "Nouvelle valeur"
+msgstr "Nouvelle valeur"
+
+msgid "Utilisateur @instant"
+msgstr "Utilisateur @instant"
+
+msgid "Lieu @instant"
+msgstr "Lieu @instant"
+
+msgid "Statut @instant"
+msgstr "Statut @instant"
+
+msgid "Modificateur"
+msgstr "Modificateur"
+

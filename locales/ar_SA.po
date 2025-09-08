@@ -1,0 +1,115 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ar_SA\n"
+
+msgid "Mouvements"
+msgstr "الحركات"
+
+msgid "Filtres du rapport"
+msgstr "مرشحات التقرير"
+
+msgid "Date début"
+msgstr "تاريخ البدء"
+
+msgid "Date fin"
+msgstr "تاريخ الانتهاء"
+
+msgid "Type de rapport"
+msgstr "نوع التقرير"
+
+msgid "Utilisateur"
+msgstr "المستخدم"
+
+msgid "Lieu"
+msgstr "الموقع"
+
+msgid "Statut"
+msgstr "الحالة"
+
+msgid "Numéro inventaire"
+msgstr "رقم الجرد"
+
+msgid "Aucun mouvement trouvé"
+msgstr "لم يتم العثور على حركات"
+
+msgid "Type équipement"
+msgstr "نوع الجهاز"
+
+msgid "N°Inv"
+msgstr "رقم الجرد"
+
+msgid "N°S"
+msgstr "الرقم التسلسلي"
+
+msgid "Nom"
+msgstr "الاسم"
+
+msgid "Type mouvement"
+msgstr "نوع الحركة"
+
+msgid "Date"
+msgstr "التاريخ"
+
+msgid "Ancienne valeur"
+msgstr "القيمة السابقة"
+
+msgid "Nouvelle valeur"
+msgstr "القيمة الجديدة"
+
+msgid "Utilisateur@instant"
+msgstr "المستخدم في تلك اللحظة"
+
+msgid "Lieu@instant"
+msgstr "الموقع في تلك اللحظة"
+
+msgid "Statut@instant"
+msgstr "الحالة في تلك اللحظة"
+
+msgid "Modificateur"
+msgstr "المعدل"
+
+msgid "Exporter vers Excel"
+msgstr "تصدير إلى إكسل"
+
+msgid "Générer"
+msgstr "توليد"
+
+msgid "Clé de mouvement"
+msgstr "مفتاح الحركة"
+
+msgid "Filtres des mouvements"
+msgstr "مرشحات الحركات"
+
+msgid "Tous les types"
+msgstr "كل الأنواع"
+
+msgid "Par utilisateur"
+msgstr "حسب المستخدم"
+
+msgid "Par inventaire"
+msgstr "حسب الجرد"
+
+msgid "Par lieu"
+msgstr "حسب المكان"
+
+msgid "Par statut"
+msgstr "حسب الحالة"
+
+msgid "Tapez pour filtrer..."
+msgstr "اكتب للتصفية..."
+
+msgid "Filtrer le tableau :"
+msgstr "تصفية الجدول:"
+
+msgid "Ordinateur"
+msgstr "حاسوب"
+
+msgid "Ecran"
+msgstr "شاشة"
+
+msgid "Imprimante"
+msgstr "طابعة"
+
+msgid "Périphérique"
+msgstr "جهاز طرفي"
