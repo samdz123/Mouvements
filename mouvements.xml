@@ -6,8 +6,10 @@
 
    <description>
       <short>
-         <en>Track equipment movements in GLPI</en>
-         <fr>Suivi des mouvements d'équipements dans GLPI</fr>
+         <en>Tracking of user, location, and status movements for equipment</en>
+         <fr>Suivi des mouvements des utilisateurs, des emplacements et des statuts pour les équipements</fr>
+		  <es>Seguimiento de los movimientos de usuarios, ubicaciones y estados para los equipos</es>
+		 <ar>متابعة تحركات المستخدمين والمواقع والحالات الخاصة بالأجهزة</ar>
       </short>
       <long>
          <en>
@@ -165,6 +167,7 @@
 	  <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot04.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
