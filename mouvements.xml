@@ -27,7 +27,7 @@
 		</en>
          <fr>
     * Suivi des mouvements des emplacements, des utilisateurs
-      et des statuts pour les équipements.
+        et des statuts pour les équipements.
     * Vous pouvez explorer ces mouvements dans une vue
 	en grille, avec filtres, 
 	  recherche et exportation vers Excel.
@@ -40,7 +40,8 @@
 		 Exporter les résultats vers Excel.
 		</fr>
 		  <es>
-    * Seguimiento de los movimientos de ubicaciones, usuarios y estados para los equipos.
+    * Seguimiento de los movimientos de ubicaciones, 
+	  usuarios y estados para los equipos.
     * Puede explorar estos movimientos en una vista de cuadrícula,
 	con filtros, búsqueda y exportación a Excel.
     * Funcionalidades:
@@ -157,6 +158,7 @@
 	  <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot04.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
