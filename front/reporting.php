@@ -10,7 +10,7 @@ global $DB;
 $users = [];
 $res = $DB->query("SELECT id, name FROM glpi_users ORDER BY name ASC");
 while ($row = $DB->fetchAssoc($res)) {
-   $users[$row['id']] = $row['name'];
+   $users[$row['name']] = $row['name'];
 }
 
 // Lieux
@@ -112,11 +112,12 @@ echo "</td></tr>";
 
 // champs dynamiques
 if (!empty($_GET['type'])) {
+	
     // Utilisateur
 if ($_GET['type'] == 'user') {
    echo "<tr class='tab_bg_1'><td>" . __('Utilisateur', 'mouvements') . "</td><td>";
-   Dropdown::showFromArray('user_id', $users, [
-      'value' => $_GET['user_id'] ?? 0,
+   Dropdown::showFromArray('name', $users, [
+      'value' => $_GET['name'] ?? 0,
       'display_emptychoice' => true
    ]);
    echo "</td></tr>";
@@ -196,7 +197,7 @@ $dateWhere = [];
 
       // Prepare sanitized filter values
       $filter_type = $params['type'] ?? '';
-      $filter_user = !empty($params['user_id']) ? (int)$params['user_id'] : 0;
+      $filter_user = !empty($params['name']) ? $DB->escape($params['name']) : '';
       $filter_inv  = isset($params['inventory']) ? $DB->escape($params['inventory']) : '';
       $filter_loc  = !empty($params['location']) ? (int)$params['location'] : 0;
       $filter_st   = !empty($params['status']) ? (int)$params['status'] : 0;
@@ -225,10 +226,11 @@ $dateWhere = [];
          // - if status provided => match equipment.states_id = id
          // If no specific identifier provided, we don't filter equipments (apply to all)
          if ($filter_type === 'user' && $filter_user) {
-            // many equipment tables have users_id (older GLPI) — use c.users_id if present.
-            // We'll filter on c.users_id where available.
-            $where[] = "c.users_id = {$filter_user}";
-         } elseif ($filter_type === 'inventory' && $filter_inv !== '') {
+		$where[] = "(
+		(l.id_search_option = 70 AND (l.new_value LIKE '%{$filter_user}%' OR l.old_value LIKE '%{$filter_user}%'))
+		)";
+		}
+		elseif ($filter_type === 'inventory' && $filter_inv !== '') {
             $inv = $filter_inv;
             //$where[] = "(c.otherserial LIKE '%{$inv}%')";
 			$where[] = "(c.otherserial = '{$inv}')";
