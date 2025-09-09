@@ -15,7 +15,7 @@
          <en>
     * Tracking of location, user,  and status movements for equipment.
     * Explore these movements in a grid view, 
-	with filters, search, and export to Excel.
+	  with filters, search, and export to Excel.
     * Features:
          - Movements tab on Computer, Monitor, Printer, 
 		   and Peripheral items.
@@ -27,8 +27,8 @@
 		</en>
          <fr>
     * Suivi des mouvements des emplacements, 
-	 des utilisateurs  et des statuts pour 
-	 les équipements.
+	  des utilisateurs  et des statuts pour 
+	  les équipements.
     * Explorer ces mouvements dans une vue
 	  en grille, avec filtres, recherche et 
 	  exportation vers Excel.
@@ -159,6 +159,7 @@
 	  <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot04.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
