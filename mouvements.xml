@@ -72,14 +72,19 @@
 
    <versions>
 	   <version>
+         <num>v1.1.2</num>
+         <compatibility>~10.0.x</compatibility>
+         <download_url>https://github.com/samdz123/Mouvements/releases/download/v1.1.2/mouvements.1.1.2.zip</download_url>
+      </version>
+	   <version>
          <num>v1.1.1</num>
          <compatibility>~10.0.x</compatibility>
-         <download_url>https://github.com/samdz123/Mouvements/releases/tag/v1.1.1</download_url>
+         <download_url>https://github.com/samdz123/Mouvements/releases/download/v1.1.2/mouvements.1.1.1.zip</download_url>
       </version>
       <version>
          <num>v1.0.0</num>
          <compatibility>~10.0.x</compatibility>
-         <download_url>https://github.com/samdz123/Mouvements/releases/tag/v1.0.0</download_url>
+         <download_url>https://github.com/samdz123/Mouvements/releases/download/v1.1.2/mouvements.zip</download_url>
       </version>
    </versions>
 
@@ -151,6 +156,7 @@
 	  <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot04.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
