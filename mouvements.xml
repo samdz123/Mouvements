@@ -26,18 +26,19 @@
 		   the results to Excel.
 		</en>
          <fr>
-    * Suivi des mouvements des emplacements, des utilisateurs 
-           et des statuts pour les équipements.
-    * Vous pouvez explorer ces mouvements dans une vue
-	en grille, avec filtres, 
-	  recherche et exportation vers Excel.
+    * Suivi des mouvements des emplacements, 
+	 des utilisateurs  et des statuts pour 
+	 les équipements.
+    * Explorer ces mouvements dans une vue
+	  en grille, avec filtres, recherche et 
+	  exportation vers Excel.
     * Fonctionnalités :
          - Onglet Mouvements sur les fiches Ordinateur, 
 		   Écran, Imprimante et Périphérique.
          - Tableau de bord Mouvements dans le menu Outils 
 		   permettant de filtrer selon plusieurs critères 
-		 (dates, inventaire, lieu, utilisateur et statut), 
-		 Exporter les résultats vers Excel.
+		   (dates, inventaire, lieu, utilisateur et statut), 
+		   Exporter les résultats vers Excel.
 		</fr>
 		  <es>
     * Seguimiento de los movimientos de ubicaciones, 
@@ -158,6 +159,7 @@
 	  <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot04.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
