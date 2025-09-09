@@ -26,7 +26,8 @@
 		   the results to Excel.
 		</en>
          <fr>
-    * Suivi des mouvements desemplacements, des utilisateurs et des statuts pour les équipements.
+    * Suivi des mouvements des emplacements, des utilisateurs
+      et des statuts pour les équipements.
     * Vous pouvez explorer ces mouvements dans une vue
 	en grille, avec filtres, 
 	  recherche et exportation vers Excel.
@@ -156,6 +157,7 @@
 	  <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot04.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
