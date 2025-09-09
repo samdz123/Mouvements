@@ -13,11 +13,7 @@
       </short>
       <long>
          <en>
-    * Movements plugin presents a clear table view focused 
-	  on the movements history relatif to Assets by:
-         - Location
-         - User
-         - Status
+    * Tracking of location, user,  and status movements for equipment.
     * Explore these movements in a grid view, 
 	with filters, search, and export to Excel.
     * Features:
@@ -30,12 +26,7 @@
 		   the results to Excel.
 		</en>
          <fr>
-    * Le plugin Mouvements présente une vue en tableau
-	  claire, centrée sur l’historique des changements 
-	  par rapport des equipements de:
-         - Lieu
-         - Utilisateur
-         - Statut
+    * Suivi des mouvements desemplacements, des utilisateurs et des statuts pour les équipements.
     * Vous pouvez explorer ces mouvements dans une vue
 	en grille, avec filtres, 
 	  recherche et exportation vers Excel.
@@ -48,11 +39,7 @@
 		 Exporter les résultats vers Excel.
 		</fr>
 		  <es>
-    * El plugin Movimientos presenta una vista en tabla clara,
-	centrada en el historial de los movimientos esenciales.
-         - Cambios de ubicación
-         - Asignaciones de usuario
-         - Actualizaciones de estado
+    * Seguimiento de los movimientos de ubicaciones, usuarios y estados para los equipos.
     * Puede explorar estos movimientos en una vista de cuadrícula,
 	con filtros, búsqueda y exportación a Excel.
     * Funcionalidades:
@@ -64,10 +51,7 @@
 		los resultados a Excel.
 		</es>
 		  <ar>
-    * يعرض مكوّن الحركات جدولاً واضحاً يركّز على سجل  الحركات الأساسية:
-         - تغييرات الموقع
-         - تعيينات المستخدم
-         - تحديثات الحالة
+    * متابعة تحركات المستخدمين والمواقع والحالات الخاصة بالأجهز
     * يمكنك استكشاف هذه الحركات في عرض شبكي، مع فلاتر وبحث وإمكانية التصدير إلى Excel.
     * الميزات:
          - علامة تبويب الحركات على أجهزة الكمبيوتر، الشاشات، الطابعات والأجهزة الطرفية.
@@ -167,6 +151,7 @@
 	  <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot04.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
