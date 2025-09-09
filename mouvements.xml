@@ -12,7 +12,7 @@
       <long>
          <en>
     * Movements plugin presents a clear table view focused 
-	  on the history of movements for:
+	  on the movements history relatif to Assets by:
          - Location
          - User
          - Status
@@ -165,6 +165,7 @@
 	  <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot04.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
