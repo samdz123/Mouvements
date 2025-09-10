@@ -25,10 +25,10 @@ function plugin_init_mouvements() {
 function plugin_version_mouvements() {
    return [
       'name'           => __('Mouvements', 'mouvements'),
-      'version'        => '1.0.0',
+      'version'        => '1.1.2',
       'author'         => 'Saad Meslem',
       'license'        => 'GPLv3+',
-      'homepage'       => 'https://tonsite.example',
+      'homepage'       => 'https://github.com/samdz123/Mouvements',
       'requirements'   => [
          'glpi' => [
             'min' => '10.0.0',
