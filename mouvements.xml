@@ -5,64 +5,54 @@
    <logo>https://raw.githubusercontent.com/samdz123/mouvements/main/logo.png</logo>
 
    <description>
-      <short>
-         <en>Tracking of user, location, and status movements for equipment</en>
-         <fr>Suivi des mouvements des utilisateurs, des emplacements et des statuts pour les équipements</fr>
-		  <es>Seguimiento de los movimientos de usuarios, ubicaciones y estados para los equipos</es>
-		 <ar>متابعة تحركات المستخدمين والمواقع والحالات الخاصة بالأجهزة</ar>
-      </short>
-      <long>
-         <en>
-    * Tracking of location, user,  and status movements for equipment.
-    * Explore these movements in a grid view, 
-	  with filters, search, and export to Excel.
-    * Features:
-         - Movements tab on Computer, Monitor, Printer, 
-		   and Peripheral items.
-         - Movements dashboard in Tools menu enabling 
-		   you to filter 
-		   by multiple criteria (dates, inventory, 
-		   location, user, and status), Export 
-		   the results to Excel.
-		</en>
-         <fr>
-    * Suivi des mouvements des emplacements, 
-	  des utilisateurs  et des statuts pour 
-	  les équipements.
-    * Explorer ces mouvements dans une vue
-	  en grille, avec filtres, recherche et 
-	  exportation vers Excel.
-    * Fonctionnalités :
-         - Onglet Mouvements sur les fiches Ordinateur, 
-		   Écran, Imprimante et Périphérique.
-         - Tableau de bord Mouvements dans le menu Outils 
-		   permettant de filtrer selon plusieurs critères 
-		   (dates, inventaire, lieu, utilisateur et statut), 
-		   Exporter les résultats vers Excel.
-		</fr>
-		  <es>
-    * Seguimiento de los movimientos de ubicaciones, 
-	  usuarios y estados para los equipos.
-    * Puede explorar estos movimientos en una vista de cuadrícula,
-	con filtros, búsqueda y exportación a Excel.
-    * Funcionalidades:
-         - Pestaña Movimientos en los elementos Ordenador, 
-			Monitor, Impresora y Periférico.
-         - Panel de Movimientos en el menú Herramientas que permite 
-		filtrar por múltiples criterios (fechas, inventario, 
-		ubicación, usuario y estado), y también exportar 
-		los resultados a Excel.
-		</es>
-		  <ar>
-    * متابعة تحركات المستخدمين والمواقع والحالات الخاصة بالأجهز
-    * يمكنك استكشاف هذه الحركات في عرض شبكي، مع فلاتر وبحث وإمكانية التصدير إلى Excel.
-    * الميزات:
-         - علامة تبويب الحركات على أجهزة الكمبيوتر، الشاشات، الطابعات والأجهزة الطرفية.
-         - لوحة تحكم الحركات في قائمة الأدوات تتيح التصفية حسب معايير متعددة 
-		(التواريخ، الجرد، الموقع، المستخدم والحالة)، وأيضاً تصدير النتائج إلى Excel.
-</ar>
-      </long>
-   </description>
+   <short>
+      <en>Centralized and user-friendly history of equipment changes (user, location, status)</en>
+      <fr>Historique centralisé et lisible des changements d’équipements (utilisateur, lieu, statut)</fr>
+      <es>Historial centralizado y claro de cambios en equipos (usuario, ubicación, estado)</es>
+      <ar>سجل مركزي وواضح لتغييرات الأجهزة (المستخدم، الموقع، الحالة)</ar>
+   </short>
+   <long>
+      <en>
+* Provides a full history of changes for equipment (Computer, Monitor, Printer, Peripheral).
+* Tracks modifications of user, location, and status over time.
+* Displays these changes in:
+  - A dedicated Movements tab in each item’s form.
+  - A centralized Movements dashboard (Tools menu) with advanced filters (dates, inventory number, user, location, status).
+* Simple grid display, easy to read and navigate.
+* Export to Excel for reporting and audits.
+      </en>
+
+      <fr>
+* Fournit un historique complet des changements sur les équipements (Ordinateurs, Écrans, Imprimantes, Périphériques).
+* Suit les modifications d’utilisateur, de lieu et de statut au fil du temps.
+* Affiche ces changements dans :
+  - Un onglet Mouvements sur chaque fiche d’équipement.
+  - Un tableau de bord centralisé (menu Outils) avec filtres avancés (période, inventaire, utilisateur, lieu, statut).
+* Affichage en grille lisible et simple à parcourir.
+* Export Excel pour le reporting et les audits.
+      </fr>
+
+      <es>
+* Proporciona un historial completo de cambios en equipos (Ordenadores, Monitores, Impresoras, Periféricos).
+* Registra las modificaciones de usuario, ubicación y estado a lo largo del tiempo.
+* Muestra estos cambios en:
+  - Una pestaña dedicada de Movimientos en cada ficha.
+  - Un panel centralizado (menú Herramientas) con filtros avanzados (fechas, inventario, usuario, ubicación, estado).
+* Visualización en cuadrícula sencilla y fácil de leer.
+* Exportación a Excel para informes y auditorías.
+      </es>
+
+      <ar>
+* يوفر سجلًا كاملاً لتغييرات الأجهزة (الحواسيب، الشاشات، الطابعات، الأجهزة الطرفية).
+* يتتبع تغييرات المستخدم، الموقع والحالة مع مرور الوقت.
+* يعرض هذه التغييرات في:
+  - علامة تبويب التحركات داخل بطاقة كل جهاز.
+  - لوحة تحكم مركزية (من قائمة الأدوات) مع مرشحات متقدمة (الفترة الزمنية، رقم الجرد، المستخدم، الموقع، الحالة).
+* عرض شبكي واضح وسهل التصفح.
+* تصدير إلى Excel لأغراض التقارير والتدقيق.
+      </ar>
+   </long>
+</description>
 
    <homepage>https://github.com/samdz123/Mouvements</homepage>
    <download>https://github.com/samdz123/Mouvements/releases</download>
@@ -74,6 +64,11 @@
    </authors>
 
    <versions>
+	    <version>
+         <num>v1.3.0</num>
+         <compatibility>~10.0.x</compatibility>
+         <download_url>https://github.com/samdz123/Mouvements/releases/download/v1.3.0/mouvements.1.3.0.zip</download_url>
+      </version>
 	   <version>
          <num>v1.1.2</num>
          <compatibility>~10.0.x</compatibility>
@@ -159,6 +154,7 @@
 	  <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot04.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
