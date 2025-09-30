@@ -6,16 +6,16 @@
 
    <description>
    <short>
-      <en>Centralized and user-friendly history of equipment changes (user, location, status)</en>
-      <fr>Historique centralisé et lisible des changements d’équipements (utilisateur, lieu, statut)</fr>
-      <es>Historial centralizado y claro de cambios en equipos (usuario, ubicación, estado)</es>
-      <ar>سجل مركزي وواضح لتغييرات الأجهزة (المستخدم، الموقع، الحالة)</ar>
+      <en>Centralized and user-friendly history of equipment m9vements (user, location, status)</en>
+      <fr>Historique centralisé et lisible des mouvements d’équipements (utilisateur, lieu, statut)</fr>
+      <es>Historial centralizado y claro de Movimientos en equipos (usuario, ubicación, estado)</es>
+      <ar>سجل مركزي وواضح لتحركات الأجهزة (المستخدم، الموقع، الحالة)</ar>
    </short>
    <long>
       <en>
-* Provides a full history of changes for equipment (Computer, Monitor, Printer, Peripheral).
+* Provides a full history of movements for equipment (Computer, Monitor, Printer, Peripheral).
 * Tracks modifications of user, location, and status over time.
-* Displays these changes in:
+* Displays these movements in:
   - A dedicated Movements tab in each item’s form.
   - A centralized Movements dashboard (Tools menu) with advanced filters (dates, inventory number, user, location, status).
 * Simple grid display, easy to read and navigate.
@@ -23,9 +23,9 @@
       </en>
 
       <fr>
-* Fournit un historique complet des changements sur les équipements (Ordinateurs, Écrans, Imprimantes, Périphériques).
-* Suit les modifications d’utilisateur, de lieu et de statut au fil du temps.
-* Affiche ces changements dans :
+* Fournit un historique complet des mouvements sur les équipements (Ordinateurs, Écrans, Imprimantes, Périphériques).
+* Suit les mouvements d’utilisateur, de lieu et de statut au fil du temps.
+* Affiche ces mouvements dans :
   - Un onglet Mouvements sur chaque fiche d’équipement.
   - Un tableau de bord centralisé (menu Outils) avec filtres avancés (période, inventaire, utilisateur, lieu, statut).
 * Affichage en grille lisible et simple à parcourir.
@@ -33,8 +33,8 @@
       </fr>
 
       <es>
-* Proporciona un historial completo de cambios en equipos (Ordenadores, Monitores, Impresoras, Periféricos).
-* Registra las modificaciones de usuario, ubicación y estado a lo largo del tiempo.
+* Proporciona un historial completo de movimientos en equipos (Ordenadores, Monitores, Impresoras, Periféricos).
+* Registra las movimientos de usuario, ubicación y estado a lo largo del tiempo.
 * Muestra estos cambios en:
   - Una pestaña dedicada de Movimientos en cada ficha.
   - Un panel centralizado (menú Herramientas) con filtros avanzados (fechas, inventario, usuario, ubicación, estado).
@@ -155,6 +155,7 @@
 	  <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot04.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
