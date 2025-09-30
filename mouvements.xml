@@ -6,7 +6,7 @@
 
    <description>
    <short>
-      <en>Centralized and user-friendly history of equipment m9vements (user, location, status)</en>
+      <en>Centralized and user-friendly history of equipment movements (user, location, status)</en>
       <fr>Historique centralisé et lisible des mouvements d’équipements (utilisateur, lieu, statut)</fr>
       <es>Historial centralizado y claro de Movimientos en equipos (usuario, ubicación, estado)</es>
       <ar>سجل مركزي وواضح لتحركات الأجهزة (المستخدم، الموقع، الحالة)</ar>
@@ -155,6 +155,7 @@
 	  <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot04.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
