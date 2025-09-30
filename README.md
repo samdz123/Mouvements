@@ -10,7 +10,7 @@
          - Movements **tab** on Computer, Monitor, Printer, and Peripheral items.
          - Movements dashboard in ** Tools menu ** enabling you to filter by multiple criteria (dates, inventory, location, user, and status), and also export the results to Excel.
 
-- Compatibilité **10.0.x**.
+- Compatibilité **10.0.x**.**11.0**
 
 
 
