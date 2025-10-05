@@ -1,5 +1,5 @@
 <root>
-   <name>Mouvements</name>
+   <name>Movements</name>
    <key>mouvements</key>
    <state>stable</state>
    <logo>https://raw.githubusercontent.com/samdz123/mouvements/main/logo.png</logo>
@@ -155,6 +155,7 @@
 	  <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot04.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
