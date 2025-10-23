@@ -8,7 +8,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Mouvements"
-msgstr "Movements"
+msgstr "Movementazioni"
 
 msgid "Filtres du rapport"
 msgstr "Report filtri"
@@ -40,8 +40,11 @@ msgstr "Nessun movimentazione trovata"
 msgid "Type équipement"
 msgstr "Tipo di Device"
 
-msgid "N° Inv"
-msgstr "Numero di inventario"
+msgid "N°Inv"
+msgstr "N° Inv"
+
+msgid "N°S"
+msgstr "N° Seriale"
 
 msgid "Nom"
 msgstr "Nome"
@@ -59,13 +62,13 @@ msgid "Nouvelle valeur"
 msgstr "Nuovo valore"
 
 msgid "Utilisateur@instant"
-msgstr "Utente@tempo"
+msgstr "Utente attuale"
 
 msgid "Lieu@instant"
-msgstr "Posizione@tempo"
+msgstr "Posizione attuale"
 
 msgid "Statut@instant"
-msgstr "Stato@tempo"
+msgstr "Stato attuale"
 
 msgid "Modificateur"
 msgstr "Modificato da"
