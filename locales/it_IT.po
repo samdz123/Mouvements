@@ -1,1 +1,114 @@
 
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: it_IT\n"
+
+msgid "Mouvements"
+msgstr "Movements"
+
+msgid "Filtres du rapport"
+msgstr "Report filtri"
+
+msgid "Date début"
+msgstr "Data di inizio"
+
+msgid "Date fin"
+msgstr "Data di fine"
+
+msgid "Type de rapport"
+msgstr "Tipo di report"
+
+msgid "Utilisateur"
+msgstr "Utente"
+
+msgid "Lieu"
+msgstr "Posizione"
+
+msgid "Statut"
+msgstr "Stato"
+
+msgid "Numéro inventaire"
+msgstr "Numero di iventario"
+
+msgid "Aucun mouvement trouvé"
+msgstr "Nessun movimentazione trovata"
+
+msgid "Type équipement"
+msgstr "Tipo di Device"
+
+msgid "N° Inv"
+msgstr "Numero di inventario"
+
+msgid "Nom"
+msgstr "Nome"
+
+msgid "Type mouvement"
+msgstr "Tipo di movimentazione"
+
+msgid "Date"
+msgstr "Data"
+
+msgid "Ancienne valeur"
+msgstr "Valore precedente"
+
+msgid "Nouvelle valeur"
+msgstr "Nuovo valore"
+
+msgid "Utilisateur@instant"
+msgstr "Utente@tempo"
+
+msgid "Lieu@instant"
+msgstr "Posizione@tempo"
+
+msgid "Statut@instant"
+msgstr "Stato@tempo"
+
+msgid "Modificateur"
+msgstr "Modificato da"
+
+msgid "Exporter vers Excel"
+msgstr "Esporta in Excel"
+
+msgid "Générer"
+msgstr "Generare"
+
+msgid "Clé de mouvement"
+msgstr "Chiave della Movimentazione"
+
+msgid "Filtres des mouvements"
+msgstr "Filtra movimentazioni"
+
+msgid "Tous les types"
+msgstr "Tutti i tipi"
+
+msgid "Par utilisateur"
+msgstr "Per utente"
+
+msgid "Par inventaire"
+msgstr "Per Inventario"
+
+msgid "Par lieu"
+msgstr "Per Posizione"
+
+msgid "Par statut"
+msgstr "Per stato"
+
+msgid "Tapez pour filtrer..."
+msgstr "Digita per filtrare..."
+
+msgid "Filtrer le tableau :"
+msgstr "Filtra la tabella :"
+
+msgid "Ordinateur"
+msgstr "Computer"
+
+msgid "Ecran"
+msgstr "Monitor"
+
+msgid "Imprimante"
+msgstr "Stampante"
+
+msgid "Périphérique"
+msgstr "Periferica"
+
