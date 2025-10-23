@@ -80,7 +80,7 @@ msgid "Générer"
 msgstr "Generare"
 
 msgid "Clé de mouvement"
-msgstr "Chiave della Movimentazione"
+msgstr "Ricerca Movimentazione per.."
 
 msgid "Filtres des mouvements"
 msgstr "Filtra movimentazioni"
@@ -118,3 +118,5 @@ msgstr "Stampante"
 msgid "Périphérique"
 msgstr "Periferica"
 
+msgid "Aucun mouvement trouvé dans la base"
+msgstr "Nessuna movimentazione trovata"
