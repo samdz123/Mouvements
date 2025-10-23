@@ -297,7 +297,7 @@ $dateWhere = [];
 
 // Debug : voir si la requête renvoie quelque chose
 if (!$res || $DB->numrows($res) == 0) {
-   echo "<div class='m-2'>Aucun mouvement trouvé dans la base</div>";
+    echo '<div class="m-2">' . __('Aucun mouvement trouvé dans la base','mouvements') . '</div>';
    Html::footer();
    exit;
 }
@@ -426,3 +426,4 @@ input.addEventListener("keyup", function() {
     }
 });
 </script>';  
+
