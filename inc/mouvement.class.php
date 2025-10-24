@@ -1,4 +1,22 @@
-<?php
+﻿<?php
+
+/*Plugin Mouvements for GLPI
+Copyright (C) 2025 Saad Meslem
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <https://www.gnu.org/licenses/>.
+*/
+use Glpi\DBAL\QueryExpression;
 if (!defined('GLPI_ROOT')) {
    die("Sorry. You can't access this file directly");
 }
@@ -43,9 +61,10 @@ class PluginMouvementsMouvement extends CommonGLPI {
     $Mouvement_filter = $_SESSION['plugin_Mouvements_filter'] ?? '';
 	}
 	
-      $res = $DB->query($sql);
+      $iterator = $DB->request($sql);
 
-      if ($DB->numrows($res) == 0) {
+
+      if (count($iterator) == 0) {
          echo "<div class='m-2'>" . __('Aucun mouvement trouvé', 'Mouvements') . "</div>";
          return;
       }
@@ -79,7 +98,7 @@ echo '</div>';
 
 
 
-      while ($row = $DB->fetchAssoc($res)) {
+      foreach ($iterator as $row) {
 		  
 		  $typeMap2 = [
    3  => __('Lieu', 'mouvements'),
@@ -152,7 +171,7 @@ input.addEventListener("keyup", function() {
 
    // ================== SQL builder ==================
    private static function buildGlobalSQL($currentType, $currentId, $limit = 1000) {   
-	   
+	   global $DB;
    $blocks = [
       'Computer'   => ['table' => 'glpi_computers',   'typecol' => 'computertypes_id',   'modelcol' => 'computermodels_id',   'typetable' => 'glpi_computertypes',   'modeltable' => 'glpi_computermodels'],
       'Printer'    => ['table' => 'glpi_printers',    'typecol' => 'printertypes_id',    'modelcol' => 'printermodels_id',    'typetable' => 'glpi_printertypes',    'modeltable' => 'glpi_printermodels'],
@@ -166,7 +185,143 @@ input.addEventListener("keyup", function() {
 
    $m = $blocks[$currentType];
 
-   $sql = "
+$initUser = PluginMouvementsInitialValue::getInitialValue($currentType, $currentId, 'user');
+if (!$initUser) {
+   // valeur actuelle jointe depuis glpi_users
+   $user = $DB->request([
+      'SELECT' => ['u.name'],
+      'FROM'   => $m['table'].' AS c',
+      'LEFT JOIN' => [
+         'glpi_users AS u' => ['FKEY' => ['c' => 'users_id', 'u' => 'id']]
+      ],
+      'WHERE'  => ['c.id' => $currentId]
+   ])->current();
+
+   $username = $user ? $user['name'] : '';
+
+   if ($username) {
+      PluginMouvementsInitialValue::saveInitialValue($currentType, $currentId, 'user', $username);
+      $initUser = $username;
+   }
+}
+
+$initLocation = PluginMouvementsInitialValue::getInitialValue($currentType, $currentId, 'location');
+if (!$initLocation) {
+   $loc = $DB->request([
+      'SELECT' => ['loc.name'],
+      'FROM'   => $m['table'].' AS c',
+      'LEFT JOIN' => [
+         'glpi_locations AS loc' => ['FKEY' => ['c' => 'locations_id', 'loc' => 'id']]
+      ],
+      'WHERE'  => ['c.id' => $currentId]
+   ])->current();
+
+   $locname = $loc ? $loc['name'] : '';
+
+   if ($locname) {
+      PluginMouvementsInitialValue::saveInitialValue($currentType, $currentId, 'location', $locname);
+      $initLocation = $locname;
+   }
+}
+
+$initState = PluginMouvementsInitialValue::getInitialValue($currentType, $currentId, 'status');
+if (!$initState) {
+   $st = $DB->request([
+      'SELECT' => ['st.name'],
+      'FROM'   => $m['table'].' AS c',
+      'LEFT JOIN' => [
+         'glpi_states AS st' => ['FKEY' => ['c' => 'states_id', 'st' => 'id']]
+      ],
+      'WHERE'  => ['c.id' => $currentId]
+   ])->current();
+
+   $stname = $st ? $st['name'] : '';
+
+   if ($stname) {
+      PluginMouvementsInitialValue::saveInitialValue($currentType, $currentId, 'status', $stname);
+      $initState = $stname;
+   }
+}
+if (class_exists('\\Glpi\\DBAL\\QueryExpression')) {
+	//glpi 11 
+$sql = [
+    'SELECT' => [
+        new QueryExpression("'".$currentType."' AS Type_equipement"),
+        'c.otherserial AS Inventaire',
+        'c.name AS Nom',
+        'c.serial AS Serial',
+        new QueryExpression("DATE_FORMAT(l.date_mod, '%d/%m/%Y %H:%i') AS Date_mouvement"),
+        new QueryExpression("CASE l.id_search_option
+             WHEN 3 THEN 'Lieu'
+             WHEN 31 THEN 'Statut'
+             WHEN 70 THEN 'Utilisateur'
+             ELSE 'Autre'
+         END AS type_mouvement"),
+        'l.id_search_option AS type_mouvement_code',
+        'l.old_value AS ancienne_valeur',
+        'l.new_value AS nouvelle_valeur',
+        'g.name AS Structure_Utilisateur_actuel',
+        'ct.name AS soustype_equipement',
+        'cm.name AS Model',
+        'u.name AS Utilisateur_actuel',
+        'l.user_name AS Modificateur',
+        'l.id AS log_id',
+
+        // Sous-requêtes (inchangées, mais protégées par QueryExpression)
+		            // fallback intelligent sur valeurs initiales
+            new QueryExpression("COALESCE(
+               (SELECT l2.new_value FROM glpi_logs l2
+                  WHERE l2.itemtype = '".$DB->escape($currentType)."'
+                    AND l2.items_id = c.id
+                    AND l2.id_search_option = 70
+                    AND l2.date_mod <= l.date_mod
+                  ORDER BY l2.date_mod DESC LIMIT 1),
+               '".$DB->escape($initUser)."'
+            ) AS Utilisateur_a_cet_instant"),
+
+            new QueryExpression("COALESCE(
+               (SELECT l3.new_value FROM glpi_logs l3
+                  WHERE l3.itemtype = '".$DB->escape($currentType)."'
+                    AND l3.items_id = c.id
+                    AND l3.id_search_option = 3
+                    AND l3.date_mod <= l.date_mod
+                  ORDER BY l3.date_mod DESC LIMIT 1),
+               '".$DB->escape($initLocation)."'
+            ) AS Lieu_a_cet_instant"),
+
+            new QueryExpression("COALESCE(
+               (SELECT l4.new_value FROM glpi_logs l4
+                  WHERE l4.itemtype = '".$DB->escape($currentType)."'
+                    AND l4.items_id = c.id
+                    AND l4.id_search_option = 31
+                    AND l4.date_mod <= l.date_mod
+                  ORDER BY l4.date_mod DESC LIMIT 1),
+               '".$DB->escape($initState)."'
+            ) AS Statut_a_cet_instant"),
+    ],
+    'FROM' => ['glpi_logs AS l'],
+    'JOIN' => [
+        $m['table'].' AS c' => ['FKEY' => ['l'=>'items_id','c'=>'id']],
+        $m['typetable'].' AS ct' => ['FKEY' => ['c' => $m['typecol'], 'ct' => 'id']],
+        $m['modeltable'].' AS cm'=> ['FKEY' => ['c' => $m['modelcol'], 'cm' => 'id']],
+    ],
+    'LEFT JOIN' => [
+       'glpi_users AS u'  => ['FKEY' => ['c' => 'users_id', 'u' => 'id']],
+        'glpi_groups AS g' => ['FKEY' => ['u' => 'groups_id', 'g' => 'id']],
+		'glpi_locations AS loc' => ['FKEY' => ['c' => 'locations_id', 'loc' => 'id']],
+		'glpi_states AS st' => ['FKEY' => ['c' => 'states_id', 'st' => 'id']],
+    ],
+    'WHERE' => [
+        ['l.itemtype' => $currentType],
+        ['l.items_id' => $currentId],
+        ['l.id_search_option' => [3, 31, 70]],
+    ],
+    'ORDER' => ['l.date_mod DESC'],
+    'LIMIT' => (int)$limit
+];
+}else {
+	// GLPI 10
+	$sql = "
    SELECT
       '".$currentType."' AS Type_equipement,
       c.otherserial AS Inventaire,
@@ -210,7 +365,8 @@ input.addEventListener("keyup", function() {
    ORDER BY l.date_mod DESC
    LIMIT " . (int)$limit;
 
-   return $sql;
+}
+return $sql;
 }
 
    // Helper : nettoie "Libellé (123)" => "Libellé"
