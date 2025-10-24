@@ -1,6 +1,24 @@
 <?php
-include ('../../../inc/includes.php');
 
+/*Plugin Mouvements for GLPI
+Copyright (C) 2025 Saad Meslem
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <https://www.gnu.org/licenses/>.
+*/
+
+include ('../../../inc/includes.php');
+use Glpi\DBAL\QueryExpression;
 Html::header(__('Mouvements', 'mouvements'), $_SERVER['PHP_SELF'], "tools", "PluginMouvementReport");
 
 // Préparer les listes pour les dropdowns
@@ -8,28 +26,61 @@ global $DB;
 
 // Utilisateurs
 $users = [];
-$res = $DB->query("SELECT id, name FROM glpi_users ORDER BY name ASC");
-while ($row = $DB->fetchAssoc($res)) {
-   $users[$row['name']] = $row['name'];
+foreach ($DB->request([
+    'FROM'   => 'glpi_users',
+    'FIELDS' => ['id','name'],
+    'ORDER'  => 'name'
+]) as $row) {
+    $users[(int)$row['id']] = $row['name'];
 }
 
 // Lieux
 $locations = [];
-$res = $DB->query("SELECT name FROM glpi_locations ORDER BY name ASC");
-while ($row = $DB->fetchAssoc($res)) {
-   $locations[$row['name']] = $row['name'];
+foreach ($DB->request([
+    'FROM'   => 'glpi_locations',
+    'FIELDS' => ['id','name'],
+    'ORDER'  => 'name'
+]) as $row) {
+    $locations[$row['id']] = $row['name'];
 }
 
 // Statuts
 $states = [];
-$res = $DB->query("SELECT id, name FROM glpi_states ORDER BY name ASC");
-while ($row = $DB->fetchAssoc($res)) {
-   $states[$row['id']] = $row['name'];
+foreach ($DB->request([
+    'FROM'   => 'glpi_states',
+    'FIELDS' => ['id','name'],
+    'ORDER'  => 'name'
+]) as $row) {
+    $states[(int)$row['id']] = $row['name'];
 }
 
 // Inventaire (otherserial)
 $inventories = [];
 
+if (class_exists('\\Glpi\\DBAL\\QueryExpression')) {
+	//glpi 11 
+// GLPI 11
+   $unionSQL = "
+      SELECT otherserial AS inv FROM glpi_computers   WHERE otherserial != ''
+      UNION
+      SELECT otherserial AS inv FROM glpi_monitors    WHERE otherserial != ''
+      UNION
+      SELECT otherserial AS inv FROM glpi_printers    WHERE otherserial != ''
+      UNION
+      SELECT otherserial AS inv FROM glpi_peripherals WHERE otherserial != ''
+   ";
+
+   $req = [
+      'SELECT' => ['t.inv'],
+      'FROM'   => new \Glpi\DBAL\QueryExpression("($unionSQL) AS t"),
+      'ORDER'  => ['t.inv ASC']
+   ];
+
+   foreach ($DB->request($req) as $row) {
+      $inventories[$row['inv']] = $row['inv'];
+   }
+}else{
+/////////glpi 10 
 $sql = "
    SELECT otherserial AS inv FROM glpi_computers   WHERE otherserial != ''
    UNION
@@ -45,6 +96,8 @@ $res = $DB->query($sql);
 while ($row = $DB->fetchAssoc($res)) {
    $inventories[$row['inv']] = $row['inv'];
 }
+}
+//////////////
 
 // Utilitaires d'affichage
 function mov_h($s): string {
@@ -74,15 +127,6 @@ echo "<form method='GET' action=''>";
 echo "<table class='tab_cadre_fixe'>";
 echo "<tr><th colspan='2'>" . __('Filtres des mouvements', 'mouvements') . "</th></tr>";
 
-
-// date debut
-/*echo "<tr class='tab_bg_1'><td>" . __('Date début', 'mouvements') . "</td>";
-echo "<td><input type='date' name='date_debut' value='" . mov_h($_GET['date_debut'] ?? '') . "'></td></tr>";
-
-// date fin
-echo "<tr class='tab_bg_1'><td>" . __('Date fin', 'mouvements') . "</td>";
-echo "<td><input type='date' name='date_fin' value='" . mov_h($_GET['date_fin'] ?? '') . "'></td></tr>";
-*/
 // ---- Dates par défaut : les 3 derniers mois ----
 $default_start = date('Y-m-d', strtotime('-3 months'));
 $default_end   = date('Y-m-d');
@@ -112,12 +156,11 @@ echo "</td></tr>";
 
 // champs dynamiques
 if (!empty($_GET['type'])) {
-	
     // Utilisateur
 if ($_GET['type'] == 'user') {
    echo "<tr class='tab_bg_1'><td>" . __('Utilisateur', 'mouvements') . "</td><td>";
-   Dropdown::showFromArray('name', $users, [
-      'value' => $_GET['name'] ?? 0,
+   Dropdown::showFromArray('user_id', $users, [
+      'value' => $_GET['user_id'] ?? 0,
       'display_emptychoice' => true
    ]);
    echo "</td></tr>";
@@ -197,16 +240,22 @@ $dateWhere = [];
 
       // Prepare sanitized filter values
       $filter_type = $params['type'] ?? '';
-      $filter_user = !empty($params['name']) ? $DB->escape($params['name']) : '';
+      $filter_user = !empty($params['user_id']) ? (int)$params['user_id'] : 0;
       $filter_inv  = isset($params['inventory']) ? $DB->escape($params['inventory']) : '';
       $filter_loc  = !empty($params['location']) ? (int)$params['location'] : 0;
       $filter_st   = !empty($params['status']) ? (int)$params['status'] : 0;
 	  
-	  // Récupérer le libellé du statut sélectionné (pour comparaison dans les logs)
+	    // Récupérer le libellé du statut sélectionné (pour comparaison dans les logs)
 		// $states est déjà construit plus haut (id => name)
 		$filterStateName = '';
 		if ($filter_st && isset($states[$filter_st])) {
 		$filterStateName = $states[$filter_st];
+		}
+		// Récupérer le libellé du lieu sélectionné (pour comparaison dans les logs)
+		// $location est déjà construit plus haut (id => name)
+		$filterLocName = '';
+		if ($filter_loc && isset($locations[$filter_loc])) {
+		$filterLocName = $locations[$filter_loc];
 		}
 
 
@@ -226,31 +275,106 @@ $dateWhere = [];
          // - if status provided => match equipment.states_id = id
          // If no specific identifier provided, we don't filter equipments (apply to all)
          if ($filter_type === 'user' && $filter_user) {
-		$where[] = "(
+            // many equipment tables have users_id (older GLPI) — use c.users_id if present.
+            // We'll filter on c.users_id where available.
+            $where[] = "(
 		(l.id_search_option = 70 AND (l.new_value LIKE '%{$filter_user}%' OR l.old_value LIKE '%{$filter_user}%'))
 		)";
-		}
-		elseif ($filter_type === 'inventory' && $filter_inv !== '') {
+         } elseif ($filter_type === 'inventory' && $filter_inv !== '') {
             $inv = $filter_inv;
             //$where[] = "(c.otherserial LIKE '%{$inv}%')";
 			$where[] = "(c.otherserial = '{$inv}')";
+			
          } elseif ($filter_type === 'location' && $filter_loc) {
-            // filter by equipment location (best-effort)
-            $where[] = "(c.locations_id = {$filter_loc} OR c.location = {$filter_loc})";
-         
-		 
-		 } elseif($filter_type === 'status' && $filter_st && $filterStateName !== '') {
-		$escapedState = $DB->escape($filterStateName);
-		// Use LIKE because log value may be "En marche (1)" etc.
-		$sub = "(SELECT l4.new_value FROM glpi_logs l4
-                  WHERE l4.itemtype = '".$DB->escape($itype)."' AND l4.items_id = c.id AND l4.id_search_option = 31 AND l4.date_mod <= l.date_mod
-                  ORDER BY l4.date_mod DESC LIMIT 1)";
-		$where[] = "{$sub} LIKE '%{$escapedState}%'";
+			$where[] = 	"(l.id_search_option = 3 AND (l.new_value LIKE '%{$filter_loc}%' OR l.old_value LIKE '%{$filter_loc}%'))";
+	
+		 } elseif($filter_type === 'status' && $filter_st) {
+		
+		$where[] = 	"(l.id_search_option = 31 AND (l.new_value LIKE '%{$filter_st}%' OR l.old_value LIKE '%{$filter_st}%'))";
 		}
 
          $whereSql = implode(' AND ', $where);
 
-         $unions[] = "
+
+//////////////
+
+if (class_exists('\\Glpi\\DBAL\\QueryExpression')) {
+	//glpi 11 
+   $req = [
+    'SELECT' => [
+        new QueryExpression("'".$DB->escape($itype)."' AS Type_equipement"),
+        'c.otherserial AS Inventaire',
+        'c.serial AS Serial',
+        'c.name AS Nom',
+        'l.date_mod AS Date_modif',
+        new QueryExpression("DATE_FORMAT(l.date_mod, '%d/%m/%Y %H:%i') AS Date_mouvement"),
+        'l.id_search_option AS type_mouvement_code',
+        'l.old_value AS ancienne_valeur',
+        'l.new_value AS nouvelle_valeur',
+        'l.user_name AS Modificateur',
+		new QueryExpression("COALESCE(
+   (SELECT l2.new_value FROM glpi_logs l2
+      WHERE l2.itemtype = '".$DB->escape($itype)."'
+        AND l2.items_id = c.id
+        AND l2.id_search_option = 70
+        AND l2.date_mod <= l.date_mod
+      ORDER BY l2.date_mod DESC LIMIT 1),
+   (SELECT iv.initial_value FROM glpi_plugin_mouvements_initialvalues iv
+      WHERE iv.itemtype = '".$DB->escape($itype)."'
+        AND iv.items_id = c.id
+        AND iv.field = 'user'
+      LIMIT 1),
+   u.name
+) AS Utilisateur_a_cet_instant"),
+
+new QueryExpression("COALESCE(
+   (SELECT l3.new_value FROM glpi_logs l3
+      WHERE l3.itemtype = '".$DB->escape($itype)."'
+        AND l3.items_id = c.id
+        AND l3.id_search_option = 3
+        AND l3.date_mod <= l.date_mod
+      ORDER BY l3.date_mod DESC LIMIT 1),
+   (SELECT iv.initial_value FROM glpi_plugin_mouvements_initialvalues iv
+      WHERE iv.itemtype = '".$DB->escape($itype)."'
+        AND iv.items_id = c.id
+        AND iv.field = 'location'
+      LIMIT 1),
+   loc.name
+) AS Lieu_a_cet_instant"),
+
+new QueryExpression("COALESCE(
+   (SELECT l4.new_value FROM glpi_logs l4
+      WHERE l4.itemtype = '".$DB->escape($itype)."'
+        AND l4.items_id = c.id
+        AND l4.id_search_option = 31
+        AND l4.date_mod <= l.date_mod
+      ORDER BY l4.date_mod DESC LIMIT 1),
+   (SELECT iv.initial_value FROM glpi_plugin_mouvements_initialvalues iv
+      WHERE iv.itemtype = '".$DB->escape($itype)."'
+        AND iv.items_id = c.id
+        AND iv.field = 'status'
+      LIMIT 1),
+   st.name
+) AS Statut_a_cet_instant"),
+    ],
+    'FROM'  => 'glpi_logs AS l',
+    'JOIN'  => [
+        $m['table'].' AS c' => ['FKEY' => ['l'=>'items_id','c'=>'id']],
+        $m['typetable'].' AS ct' => ['FKEY' => ['c' => $m['typecol'], 'ct' => 'id']],
+        $m['modeltable'].' AS cm'=> ['FKEY' => ['c' => $m['modelcol'], 'cm' => 'id']],
+    ],
+    'LEFT JOIN' => [
+        'glpi_users AS u'  => ['FKEY' => ['c' => 'users_id', 'u' => 'id']],
+        'glpi_groups AS g' => ['FKEY' => ['u' => 'groups_id', 'g' => 'id']],
+		'glpi_locations AS loc' => ['FKEY' => ['c' => 'locations_id', 'loc' => 'id']],
+		'glpi_states AS st' => ['FKEY' => ['c' => 'states_id', 'st' => 'id']],
+    ],
+	'WHERE' => [ new QueryExpression($whereSql) ],
+    'ORDER' => ['l.date_mod DESC']
+];
+} else {
+   // GLPI 10
+   $req = "
             SELECT
                '".$DB->escape($itype)."' AS Type_equipement,
                c.otherserial AS Inventaire,
@@ -285,19 +409,21 @@ $dateWhere = [];
             LEFT JOIN glpi_users u ON (c.users_id = u.id)
             LEFT JOIN glpi_groups g ON (u.groups_id = g.id)
             WHERE {$whereSql}
+			ORDER by l.date_mod DESC
          ";
-      }
+      
+}
 
-      $sql = implode("\nUNION ALL\n", $unions) . "\nORDER BY Date_modif DESC";
-	  $res = $DB->query($sql);
-	
-
-
-	
+foreach ($DB->request($req) as $row) {
+    $results[] = $row;
+}
+		
+		}
 
 // Debug : voir si la requête renvoie quelque chose
-if (!$res || $DB->numrows($res) == 0) {
-    echo '<div class="m-2">' . __('Aucun mouvement trouvé dans la base','mouvements') . '</div>';
+if (empty($results)) {
+	
+   echo "<div class='m-2'>Aucun mouvement trouvé dans la base</div>";
    Html::footer();
    exit;
 }
@@ -328,7 +454,7 @@ echo '<tr>'
    . '<th>' . __('Modificateur','mouvements') . '</th>'
    . '</tr>';
 
-while ($row = $DB->fetchAssoc($res)) {
+foreach ($results as $row) {
 	$typeMap = [
    3  => __('Lieu', 'mouvements'),
    31 => __('Statut', 'mouvements'),
@@ -342,7 +468,7 @@ while ($row = $DB->fetchAssoc($res)) {
 ];
 
 $label = $typeMap[$row['type_mouvement_code']] ?? __('Autre', 'mouvements');
-$label2 = $typeMat[$row['Type_equipement']] ?? __('Autre', 'mouvements');
+$label2 = $typeMat[$row['Type_equipement']] ?? ($row['Type_equipement_lib'] ?? __('Autre', 'mouvements'));
     echo '<tr>';
     echo '<td>' . mov_h($label2) . '</td>';
     echo '<td>' . mov_h($row['Inventaire'] ?? '') . '</td>';
@@ -426,4 +552,3 @@ input.addEventListener("keyup", function() {
     }
 });
 </script>';  
-
