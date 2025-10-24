@@ -62,9 +62,7 @@
 * عرض شبكي واضح وسهل التصفح.
 * تصدير إلى Excel لأغراض التقارير والتدقيق.
       </ar>
-   	   
-	  
-
+	   
    </long>
 </description>
 
@@ -105,8 +103,8 @@
 	  <lang>fr_FR</lang>
       <lang>en_GB</lang>
 	   <lang>es_ES</lang>
-	   <lang>ar_SA</lang>
 	   <lang>it_IT</lang>
+	   <lang>ar_SA</lang>
    </langs>
 
    <license>GPL v3+</license>
@@ -149,6 +147,18 @@
       <tag>asignación</tag>
       <tag>seguimiento</tag>
   </es>
+	   <it>
+      <tag>movimento</tag>
+      <tag>in movimento</tag>
+      <tag>cambiamento</tag>
+      <tag>storico</tag>
+      <tag>registro</tag>
+      <tag>tracciabilità</tag>
+      <tag>attrezzatura</tag>
+      <tag>posizione</tag>
+      <tag>compito</tag>
+      <tag>monitoraggio</tag>
+   </it>
 	   <ar>
       <tag>حركة</tag>
       <tag>نقل</tag>
@@ -161,18 +171,7 @@
       <tag>تعيين</tag>
       <tag>تتبع</tag>
   </ar>
-	   <it>
-      <tag>movimento</tag>
-      <tag>in movimento</tag>
-      <tag>cambiamento</tag>
-      <tag>storico</tag>
-      <tag>registro</tag>
-      <tag>tracciabilità</tag>
-      <tag>attrezzatura</tag>
-      <tag>posizione</tag>
-      <tag>compito</tag>
-      <tag>monitoraggio</tag>
-   </en>
+	   
    </tags>
 
    <screenshots>
@@ -182,6 +181,7 @@
 	  <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot04.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
