@@ -51,6 +51,17 @@
 * عرض شبكي واضح وسهل التصفح.
 * تصدير إلى Excel لأغراض التقارير والتدقيق.
       </ar>
+   	   
+	  <it>
+* Fornisce una cronologia completa delle movimentazioni delle apparecchiature (computer, monitor, stampante, periferica).
+* Tiene traccia delle modifiche di utente, posizione e stato nel tempo.
+* Visualizza queste movimentazioni in:
+- Una scheda Movimentazioni dedicata nel modulo di ogni articolo.
+- Una dashboard Movimentazioni centralizzata (menu Strumenti) con filtri avanzati (date, numero di inventario, utente, posizione, stato).
+* Visualizzazione a griglia semplice, facile da leggere e navigare.
+* Esportazione in Excel per report e audit.
+      </it>
+
    </long>
 </description>
 
@@ -92,6 +103,7 @@
       <lang>en_GB</lang>
 	   <lang>es_ES</lang>
 	   <lang>ar_SA</lang>
+	   <lang>it_IT</lang>
    </langs>
 
    <license>GPL v3+</license>
@@ -146,6 +158,18 @@
       <tag>تعيين</tag>
       <tag>تتبع</tag>
   </ar>
+	   <it>
+      <tag>movimento</tag>
+      <tag>in movimento</tag>
+      <tag>cambiamento</tag>
+      <tag>storico</tag>
+      <tag>registro</tag>
+      <tag>tracciabilità</tag>
+      <tag>attrezzatura</tag>
+      <tag>posizione</tag>
+      <tag>compito</tag>
+      <tag>monitoraggio</tag>
+   </en>
    </tags>
 
    <screenshots>
@@ -155,6 +179,7 @@
 	  <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot04.png</screenshot>
    </screenshots>
 </root>
+
 
 
 

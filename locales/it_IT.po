@@ -1,0 +1,122 @@
+
+msgid ""
+msgstr ""
+"Language-Team: Italian\n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Mouvements"
+msgstr "Movementazioni"
+
+msgid "Filtres du rapport"
+msgstr "Report filtri"
+
+msgid "Date début"
+msgstr "Data di inizio"
+
+msgid "Date fin"
+msgstr "Data di fine"
+
+msgid "Type de rapport"
+msgstr "Tipo di report"
+
+msgid "Utilisateur"
+msgstr "Utente"
+
+msgid "Lieu"
+msgstr "Posizione"
+
+msgid "Statut"
+msgstr "Stato"
+
+msgid "Numéro inventaire"
+msgstr "Numero di iventario"
+
+msgid "Aucun mouvement trouvé"
+msgstr "Nessun movimentazione trovata"
+
+msgid "Type équipement"
+msgstr "Tipo di Device"
+
+msgid "N°Inv"
+msgstr "N° Inv"
+
+msgid "N°S"
+msgstr "N° Seriale"
+
+msgid "Nom"
+msgstr "Nome"
+
+msgid "Type mouvement"
+msgstr "Tipo di movimentazione"
+
+msgid "Date"
+msgstr "Data"
+
+msgid "Ancienne valeur"
+msgstr "Valore precedente"
+
+msgid "Nouvelle valeur"
+msgstr "Nuovo valore"
+
+msgid "Utilisateur@instant"
+msgstr "Utente attuale"
+
+msgid "Lieu@instant"
+msgstr "Posizione attuale"
+
+msgid "Statut@instant"
+msgstr "Stato attuale"
+
+msgid "Modificateur"
+msgstr "Modificato da"
+
+msgid "Exporter vers Excel"
+msgstr "Esporta in Excel"
+
+msgid "Générer"
+msgstr "Generare"
+
+msgid "Clé de mouvement"
+msgstr "Ricerca Movimentazione per.."
+
+msgid "Filtres des mouvements"
+msgstr "Filtra movimentazioni"
+
+msgid "Tous les types"
+msgstr "Tutti i tipi"
+
+msgid "Par utilisateur"
+msgstr "Per utente"
+
+msgid "Par inventaire"
+msgstr "Per Inventario"
+
+msgid "Par lieu"
+msgstr "Per Posizione"
+
+msgid "Par statut"
+msgstr "Per stato"
+
+msgid "Tapez pour filtrer..."
+msgstr "Digita per filtrare..."
+
+msgid "Filtrer le tableau :"
+msgstr "Filtra la tabella :"
+
+msgid "Ordinateur"
+msgstr "Computer"
+
+msgid "Ecran"
+msgstr "Monitor"
+
+msgid "Imprimante"
+msgstr "Stampante"
+
+msgid "Périphérique"
+msgstr "Periferica"
+
+msgid "Aucun mouvement trouvé dans la base"
+msgstr "Nessuna movimentazione trovata"
