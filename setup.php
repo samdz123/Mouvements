@@ -43,7 +43,7 @@ function plugin_init_mouvements() {
 function plugin_version_mouvements() {
    return [
       'name'           => __('Mouvements', 'mouvements'),
-      'version'        => '1.2.0',
+      'version'        => '1.2.1',
       'author'         => 'Saad Meslem',
       'license'        => 'GPLv3+',
       'homepage'       => "'https://github.com/samdz123/Mouvements'",
@@ -102,3 +102,4 @@ function plugin_mouvements_uninstall() {
  * @param array $rights
  * @return array
  */
+
