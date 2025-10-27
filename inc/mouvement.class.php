@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /*Plugin Mouvements for GLPI
 Copyright (C) 2025 Saad Meslem
@@ -23,6 +23,45 @@ if (!defined('GLPI_ROOT')) {
 
 class PluginMouvementsMouvement extends CommonGLPI {
 
+   // *** AJOUT: Définir le rightname pour utiliser les droits du plugin ***
+   static $rightname = 'plugin_mouvements';
+
+   /**
+    * Vérifie si l'utilisateur peut créer un mouvement
+    */
+   static function canCreate(): bool {
+      return Session::haveRight(self::$rightname, CREATE);
+   }
+
+   /**
+    * Vérifie si l'utilisateur peut voir les mouvements
+    */
+   static function canView(): bool {
+      return Session::haveRight(self::$rightname, READ);
+   }
+
+   /**
+    * Vérifie si l'utilisateur peut modifier un mouvement
+    */
+   function canUpdateItem(): bool {
+      return Session::haveRight(self::$rightname, UPDATE);
+   }
+
+   /**
+    * Vérifie si l'utilisateur peut supprimer un mouvement
+    */
+   function canDeleteItem(): bool {
+      return Session::haveRight(self::$rightname, DELETE);
+   }
+
+   /**
+    * Vérifie si l'utilisateur peut purger un mouvement
+    */
+   function canPurgeItem(): bool {
+      return Session::haveRight(self::$rightname, PURGE);
+   }
+   // *** FIN DES AJOUTS DE DROITS ***
+
    static function getTypeName($nb = 0) {
       return __('Mouvements', 'mouvements');
    }
@@ -31,6 +70,12 @@ class PluginMouvementsMouvement extends CommonGLPI {
    
    
    function getTabNameForItem(CommonGLPI $item, $withtemplate = 0) {
+      // *** AJOUT: Vérification des droits ***
+      if (!self::canView()) {
+         return '';
+      }
+      // *** FIN AJOUT ***
+      
       if (in_array($item->getType(), ['Computer','Printer','Monitor','Peripheral'])) {
          return self::getTypeName();
       }
@@ -38,6 +83,13 @@ class PluginMouvementsMouvement extends CommonGLPI {
    }
 
    static function displayTabContentForItem(CommonGLPI $item, $tabnum = 1, $withtemplate = 0) {
+      // *** AJOUT: Vérification des droits ***
+      if (!self::canView()) {
+         echo "<div class='center'><br>" . __('You do not have permission to view this page') . "</div>";
+         return false;
+      }
+      // *** FIN AJOUT ***
+      
       self::renderItemTab($item);
       return true;
    }
@@ -65,13 +117,14 @@ class PluginMouvementsMouvement extends CommonGLPI {
 
 
       if (count($iterator) == 0) {
-         echo "<div class='m-2'>" . __('Aucun mouvement trouvé', 'Mouvements') . "</div>";
+         echo "<div class='m-2'>" . __('Aucun mouvement trouvé', 'mouvements') . "</div>";
          return;
       }
 
+
       // ---- Tableau des résultats ----
 	  // ---- Champ de filtre côté client ----
-echo '<div style="text-align:center; font-size:20px; font-weight:bold;">MOUVEMENTS</div>';
+echo '<div style="text-align:center; font-size:20px; font-weight:bold;">' . __('MOUVEMENT', 'mouvements') . '</div>';
 
 
 echo '<div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">';
@@ -96,6 +149,7 @@ echo '</div>';
 		 . '<th>' . __('N°Inv','mouvements') . '</th>'
          . '</tr>';
 
+	  
 
 
       foreach ($iterator as $row) {
