@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 /*Plugin Mouvements for GLPI
 Copyright (C) 2025 Saad Meslem
@@ -29,12 +29,29 @@ function plugin_init_mouvements() {
       CommonGLPI::registerStandardTab($type, 'PluginMouvementsMouvement');
    }
    
-         if (Session::getLoginUserID()) {
-			$PLUGIN_HOOKS['menu_toadd']['mouvements'] = ['tools' => 'PluginMouvementsMenu'];
-		}
-		
+   // *** MODIFICATION: Ajout de la vérification des droits pour le menu ***
+   if (Session::getLoginUserID()) {
+      // Vérifier si l'utilisateur a au moins le droit de lecture
+      if (Session::haveRight('plugin_mouvements', READ)) {
+         $PLUGIN_HOOKS['menu_toadd']['mouvements'] = ['tools' => 'PluginMouvementsMenu'];
+      }
+   }
+   
    Plugin::registerClass('PluginMouvementsMouvement');
    Plugin::registerClass('PluginMouvementsInitialValue');
+   
+   // *** AJOUT: Enregistrer la classe Profile pour ajouter un onglet aux profils ***
+   Plugin::registerClass('PluginMouvementsProfile', [
+      'addtabon' => 'Profile'
+   ]);
+   
+   // *** AJOUT: Hook pour initialiser le profil lors du changement de profil ***
+   $PLUGIN_HOOKS['change_profile']['mouvements'] = ['PluginMouvementsProfile', 'initProfile'];
+   
+   // *** AJOUT: Hook pour sauvegarder les droits lors de la mise à jour du profil ***
+   $PLUGIN_HOOKS['item_update']['mouvements'] = [
+      'Profile' => ['PluginMouvementsProfile', 'changeProfile']
+   ];
 }
 
 /**
@@ -43,7 +60,7 @@ function plugin_init_mouvements() {
 function plugin_version_mouvements() {
    return [
       'name'           => __('Mouvements', 'mouvements'),
-      'version'        => '1.2.1',
+      'version'        => '1.3.0',
       'author'         => 'Saad Meslem',
       'license'        => 'GPLv3+',
       'homepage'       => "'https://github.com/samdz123/Mouvements'",
@@ -76,6 +93,9 @@ function plugin_mouvements_install() {
       $migration->addPostQuery($query);
    }
 
+   // *** AJOUT: Installation des droits dans les profils ***
+   PluginMouvementsProfile::install($migration);
+
    $migration->executeMigration();
 
    return true;
@@ -90,16 +110,11 @@ function plugin_mouvements_uninstall() {
    if ($DB->tableExists('glpi_plugin_mouvements_initialvalues')) {
       $migration->dropTable('glpi_plugin_mouvements_initialvalues');
    }
+   
+   // *** AJOUT: Désinstallation des droits des profils ***
+   PluginMouvementsProfile::uninstall($migration);
 
    $migration->executeMigration();
 
    return true;
 }
-
-/**
- * Hook pour ajouter les droits du plugin.
- *
- * @param array $rights
- * @return array
- */
-
