@@ -52,6 +52,16 @@
 * Visualizzazione a griglia semplice, facile da leggere e navigare.
 * Esportazione in Excel per report e audit.
       </it>
+
+      <de>	   
+* Bietet eine vollständige Historie der Gerätebewegungen (Computer, Monitore, Drucker, Peripheriegeräte).
+* Verfolgt Benutzer-, Standort- und Statusänderungen im Zeitverlauf.
+* Diese Bewegungen werden angezeigt in:
+- Auf der Registerkarte „Bewegungen“ jedes Gerätedatensatzes.
+- Ein zentrales Dashboard (Menü „Tools“) mit erweiterten Filtern (Zeitraum, Inventar, Benutzer, Standort, Status).
+* Übersichtliche und benutzerfreundliche Tabellenansicht.
+* Excel-Export für Berichte und Audits.
+	  </de>
 	   
       <ar>
 * يوفر سجلًا كاملاً لتغييرات الأجهزة (الحواسيب، الشاشات، الطابعات، الأجهزة الطرفية).
@@ -114,9 +124,10 @@
    <langs>
 	  <lang>fr_FR</lang>
       <lang>en_GB</lang>
-	   <lang>es_ES</lang>
-	   <lang>it_IT</lang>
-	   <lang>ar_SA</lang>
+	  <lang>es_ES</lang>
+	  <lang>it_IT</lang>
+	  <lang>de_DE</lang>
+	  <lang>ar_SA</lang>
    </langs>
 
    <license>GPL v3+</license>
@@ -159,7 +170,7 @@
       <tag>asignación</tag>
       <tag>seguimiento</tag>
   </es>
-	   <it>
+  <it>
       <tag>movimento</tag>
       <tag>in movimento</tag>
       <tag>cambiamento</tag>
@@ -171,7 +182,20 @@
       <tag>compito</tag>
       <tag>monitoraggio</tag>
    </it>
-	   <ar>
+   <de>
+      <tag>Bewegung</tag>
+	  <tag>Bewegung</tag>
+ 	  <tag>Änderung</tag>
+	  <tag>Verlauf</tag>
+	  <tag>Protokoll</tag>
+	  <tag>Rückverfolgbarkeit</tag>
+	  <tag>Ausrüstung</tag>
+	  <tag>Standort</tag>
+	  <tag>Zuweisung</tag>
+	  <tag>Tracking</tag>
+	  <tag>Protokolle</tag>
+   </de>
+   <ar>
       <tag>حركة</tag>
       <tag>نقل</tag>
       <tag>تغيير</tag>
@@ -194,6 +218,7 @@
 	  <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot05.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
