@@ -7,7 +7,7 @@
    <description>
    <short>
       <en>Centralized and user-friendly history of equipment movements (user, location, status), Keep the  history even after the permanent deletion of equipments and users</en>
-      <fr>Historique centralisé et lisible des mouvements d’équipements (utilisateur, lieu, statut), garder l'histaurique meme apres une supression definitive d'equipements et d"utilisateurs</fr>
+      <fr>Historique centralisé et lisible des mouvements d’équipements (utilisateur, lieu, statut), garder l'historique meme apres une supression definitive d'equipements et d"utilisateurs</fr>
       <es>Historial centralizado y claro de Movimientos en equipos (usuario, ubicación, estado)</es>
 	  <it>Storico centralizzato e intuitivo dei movimenti delle apparecchiature (utente, posizione, stato)</it>
       <ar>سجل مركزي وواضح لتحركات الأجهزة (المستخدم، الموقع، الحالة)</ar>
@@ -27,7 +27,7 @@
 
       <fr>
 * Fournit un historique complet des mouvements sur les équipements (Ordinateurs, Écrans, Imprimantes, Périphériques).
-* garder l'histaurique meme apres une supression definitive d'equipements et d"utilisateurs.
+* garder l'historique meme apres une supression definitive d'equipements et d"utilisateurs.
 * avoir l'histaurique des equipements utilisés par un utilisateur spécifique.
 * Suit les mouvements d’utilisateur, de lieu et de statut au fil du temps.
 * Affiche ces mouvements dans :
@@ -204,6 +204,7 @@
 	  <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot05.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
