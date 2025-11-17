@@ -28,7 +28,7 @@
       <fr>
 * Fournit un historique complet des mouvements sur les équipements (Ordinateurs, Écrans, Imprimantes, Périphériques).
 * garder l'historique meme apres une supression definitive d'equipements et d"utilisateurs.
-* avoir l'histaurique des equipements utilisés par un utilisateur spécifique.
+* avoir l'historique des equipements utilisés par un utilisateur spécifique.
 * Suit les mouvements d’utilisateur, de lieu et de statut au fil du temps.
 * Affiche ces mouvements dans :
   - Un onglet Mouvements sur chaque fiche d’équipement.
@@ -204,6 +204,7 @@
 	  <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot05.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
