@@ -24,7 +24,7 @@ function plugin_init_mouvements() {
 
    
    // Ajout de l'onglet "Mouvements" sur les fiches équipements
-   $types = ['Computer','Printer','Monitor','Peripheral'];
+   $types = ['Computer','Printer','Monitor','Peripheral','User'];
    foreach ($types as $type) {
       CommonGLPI::registerStandardTab($type, 'PluginMouvementsMouvement');
    }
@@ -60,7 +60,7 @@ function plugin_init_mouvements() {
 function plugin_version_mouvements() {
    return [
       'name'           => __('Mouvements', 'mouvements'),
-      'version'        => '1.3.0',
+      'version'        => '1.4.0',
       'author'         => 'Saad Meslem',
       'license'        => 'GPLv3+',
       'homepage'       => "'https://github.com/samdz123/Mouvements'",
@@ -85,7 +85,7 @@ function plugin_mouvements_install() {
          `items_id` INT NOT NULL,
          `field` VARCHAR(50) NOT NULL,
          `initial_value` VARCHAR(255) NOT NULL,
-         `date_recorded` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+         `date_recorded` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
          UNIQUE KEY `uniq_initial` (`itemtype`, `items_id`, `field`)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci";
 
