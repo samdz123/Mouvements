@@ -69,32 +69,258 @@ class PluginMouvementsMouvement extends CommonGLPI {
    
    
    
-   function getTabNameForItem(CommonGLPI $item, $withtemplate = 0) {
-      // *** AJOUT: Vérification des droits ***
-      if (!self::canView()) {
-         return '';
-      }
-      // *** FIN AJOUT ***
-      
-      if (in_array($item->getType(), ['Computer','Printer','Monitor','Peripheral'])) {
-         return self::getTypeName();
-      }
-      return '';
-   }
+function getTabNameForItem(CommonGLPI $item, $withtemplate = 0) {
+    // *** AJOUT: Vérification des droits ***
+    if (!self::canView()) {
+        return '';
+    }
+    // *** FIN AJOUT ***
+    
+    // Afficher le tab "Mouvements" pour les équipements
+    if (in_array($item->getType(), ['Computer','Printer','Monitor','Peripheral'])) {
+        return self::getTypeName();
+    }
+    
+    // NOUVEAU : Afficher le tab "Historique Équipements" pour les utilisateurs
+    if ($item->getType() === 'User') {
+        return __('Mouvements', 'mouvements');
+    }
+    
+    return '';
+}
 
-   static function displayTabContentForItem(CommonGLPI $item, $tabnum = 1, $withtemplate = 0) {
-      // *** AJOUT: Vérification des droits ***
-      if (!self::canView()) {
-         echo "<div class='center'><br>" . __('You do not have permission to view this page') . "</div>";
-         return false;
-      }
-      // *** FIN AJOUT ***
-      
-      self::renderItemTab($item);
-      return true;
-   }
-   
-   
+static function displayTabContentForItem(CommonGLPI $item, $tabnum = 1, $withtemplate = 0) {
+    // *** AJOUT: Vérification des droits ***
+    if (!self::canView()) {
+        return false;
+    }
+    // *** FIN AJOUT ***
+    
+    // Affichage pour les équipements
+    if ($item->getType() === 'Computer' || $item->getType() === 'Printer' 
+        || $item->getType() === 'Monitor' || $item->getType() === 'Peripheral') {
+        self::renderItemTab($item);
+        return true;
+    }
+    
+    // NOUVEAU : Affichage pour les utilisateurs
+    if ($item->getType() === 'User') {
+        self::showEquipmentHistoryForUser($item);
+        return true;
+    }
+    
+    return false;
+}
+
+static function showEquipmentHistoryForUser(CommonGLPI $user): void {
+    global $DB;
+    
+    if (!$user || $user->getType() !== 'User') {
+        return;
+    }
+    
+    $user_id = (int)$user->fields['id'];
+    $user_name = htmlspecialchars($user->fields['name'] ?? '', ENT_QUOTES, 'UTF-8');
+
+    //echo "<div class='center'>";
+    //echo "<h2>" . __('Historique des équipements utilisés par l’utilisateur <<', 'mouvements') . "  " . $user_name . " >> " . "</h2>";
+    
+    // Requête SQL pour récupérer l'historique des équipements
+    // Inspirée de reporting.php et utilisant glpi_logs
+    $query = [
+        'SELECT' => [
+            'l.id',
+            'l.date_mod',
+            'l.itemtype',
+            'l.items_id',
+            'l.old_value',
+            'l.new_value',
+            'l.user_name',
+            'c.name AS computer_name',
+            'c.otherserial AS computer_serial',
+            'p.name AS printer_name',
+            'p.otherserial AS printer_serial',
+            'm.name AS monitor_name',
+            'm.otherserial AS monitor_serial',
+            'pe.name AS peripheral_name',
+            'pe.otherserial AS peripheral_serial'
+        ],
+        'FROM' => 'glpi_logs AS l',
+        'LEFT JOIN' => [
+            'glpi_computers AS c' => [
+                'ON' => [
+                    'l' => 'items_id',
+                    'c' => 'id',
+                    ['AND' => ['l.itemtype' => 'Computer']]
+                ]
+            ],
+            'glpi_printers AS p' => [
+                'ON' => [
+                    'l' => 'items_id',
+                    'p' => 'id',
+                    ['AND' => ['l.itemtype' => 'Printer']]
+                ]
+            ],
+            'glpi_monitors AS m' => [
+                'ON' => [
+                    'l' => 'items_id',
+                    'm' => 'id',
+                    ['AND' => ['l.itemtype' => 'Monitor']]
+                ]
+            ],
+            'glpi_peripherals AS pe' => [
+                'ON' => [
+                    'l' => 'items_id',
+                    'pe' => 'id',
+                    ['AND' => ['l.itemtype' => 'Peripheral']]
+                ]
+            ]
+        ],
+'WHERE' => [
+    'AND' => [
+        'l.itemtype' => ['Computer', 'Printer', 'Monitor', 'Peripheral'],
+        'OR' => [
+            
+			['l.new_value' => ['LIKE', '%' . $user_name . '%']],
+            ['l.old_value' => ['LIKE', '%' . $user_name . '%']]
+        ]
+    ]
+],
+        'ORDER' => ['l.date_mod DESC']
+    ];
+
+    //try {
+        $result = $DB->request($query);
+
+        if ($result->count() === 0) {
+            echo "<p class='center'>" . __('Aucun historique trouvé', 'mouvements') . "</p>";
+            echo "</div>";
+            return;
+        }
+        
+        // Affichage du tableau
+		
+// ---- Titre et Filtre ----
+echo '<div style="text-align:center; font-size:20px; font-weight:bold;">' . __('MOUVEMENT', 'mouvements') . '</div>';
+echo '<div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">';
+echo '  <div style="display:flex; align-items:center; gap:10px;">';
+echo '    <label for="tableFilterUser" style="font-weight:bold;">' . __('Filtrer le tableau :','mouvements') . '</label>';
+echo '    <input type="text" id="tableFilterUser" placeholder="' . __('Tapez pour filtrer...','mouvements') . '" style="max-width:200px;">';
+echo '  </div>';
+echo '  <button id="UserexportExcel" class="vsubmit">' . __('Exporter vers Excel','mouvements') . '</button>';
+echo '</div>';
+
+echo '<div class="spaced">';
+echo '<table id="UserMouvementsTable" class="tab_cadre_fixehov">';
+echo "<tr>";
+echo "<th>" . __('Type équipement', 'mouvements') . "</th>";
+echo "<th>" . __('Nom', 'mouvements') . "</th>";
+echo "<th>" . __('N°Inv', 'mouvements') . "</th>";
+echo "<th>" . __('N°S', 'mouvements') . "</th>";
+echo "<th>" . __('Date', 'mouvements') . "</th>";
+echo "<th>" . __('Ancienne valeur', 'mouvements') . "</th>";
+echo "<th>" . __('Nouvelle valeur', 'mouvements') . "</th>";
+echo "<th>" . __('Modifié par', 'mouvements') . "</th>";
+echo "</tr>";
+
+foreach ($result as $row) {
+    $itemtype = $row['itemtype'];
+    $equipment_name = '';
+    $serial = '';
+    $inventaire = '';
+    
+    // Récupération du nom et du numéro de série selon le type
+    switch ($itemtype) {
+        case 'Computer':
+            $equipment_name = htmlspecialchars($row['computer_name'] ?? '', ENT_QUOTES, 'UTF-8');
+            $serial = htmlspecialchars($row['computer_serial'] ?? '', ENT_QUOTES, 'UTF-8');
+            $type_label = __('Ordinateur', 'mouvements');
+            break;
+        case 'Printer':
+            $equipment_name = htmlspecialchars($row['printer_name'] ?? '', ENT_QUOTES, 'UTF-8');
+            $serial = htmlspecialchars($row['printer_serial'] ?? '', ENT_QUOTES, 'UTF-8');
+            $type_label = __('Imprimante', 'mouvements');
+            break;
+        case 'Monitor':
+            $equipment_name = htmlspecialchars($row['monitor_name'] ?? '', ENT_QUOTES, 'UTF-8');
+            $serial = htmlspecialchars($row['monitor_serial'] ?? '', ENT_QUOTES, 'UTF-8');
+            $type_label = __('Moniteur', 'mouvements');
+            break;
+        case 'Peripheral':
+            $equipment_name = htmlspecialchars($row['peripheral_name'] ?? '', ENT_QUOTES, 'UTF-8');
+            $serial = htmlspecialchars($row['peripheral_serial'] ?? '', ENT_QUOTES, 'UTF-8');
+            $type_label = __('Périphérique', 'mouvements');
+            break;
+        default:
+            $type_label = htmlspecialchars($itemtype, ENT_QUOTES, 'UTF-8');
+    }
+    
+    $old_value = htmlspecialchars(self::cleanValue($row['old_value'] ?? ''), ENT_QUOTES, 'UTF-8');
+    $new_value = htmlspecialchars(self::cleanValue($row['new_value'] ?? ''), ENT_QUOTES, 'UTF-8');
+    $date_mod = htmlspecialchars(self::cleanValue($row['date_mod'] ?? ''), ENT_QUOTES, 'UTF-8');
+
+    $user_mod = htmlspecialchars(self::cleanValue($row['user_name'] ?? ''), ENT_QUOTES, 'UTF-8');
+    
+    echo "<tr>";
+    echo "<td>" . $type_label . "</td>";
+    echo "<td>" . $equipment_name . "</td>";
+    echo "<td>" . $inventaire . "</td>";
+    echo "<td>" . $serial . "</td>";
+    echo "<td>" . $date_mod . "</td>";
+    echo "<td>" . $old_value . "</td>";
+    echo "<td>" . $new_value . "</td>";
+    echo "<td>" . $user_mod . "</td>";
+    echo "</tr>";
+}
+
+echo "</table>";
+echo "</div>";
+
+// ---- Script JavaScript pour filtrer le tableau User equipement ----
+echo '<script>
+(function() {
+    const input = document.getElementById("tableFilterUser");
+    const table = document.getElementById("UserMouvementsTable");
+    
+    if (!input || !table) return; // Vérification de sécurité
+    
+    input.addEventListener("keyup", function() {
+        const filter = input.value.toLowerCase();
+        const rows = table.getElementsByTagName("tr");
+        
+        // Commence à 1 pour ignorer l\'en-tête
+        for (let i = 1; i < rows.length; i++) {
+            const cells = rows[i].getElementsByTagName("td");
+            let match = false;
+            
+            for (let j = 0; j < cells.length; j++) {
+                if (cells[j].textContent.toLowerCase().includes(filter)) {
+                    match = true;
+                    break;
+                }
+            }
+            
+            rows[i].style.display = match ? "" : "none";
+        }
+    });
+})();
+</script>';
+
+
+ // ---- Script JavaScript pour export Excel user assets movements
+      echo "
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js'></script>
+      <script>
+         
+         // --- Export vers Excel ---
+         document.getElementById('UserexportExcel').addEventListener('click', function() {
+            let table = document.getElementById('UserMouvementsTable');
+            let wb = XLSX.utils.table_to_book(table, {sheet: 'Mouvements'});
+            XLSX.writeFile(wb, 'mouvements.xlsx');
+         });
+      </script>
+      ";
+}
    public static function renderItemTab($item) {
       global $DB;
 
@@ -125,8 +351,6 @@ class PluginMouvementsMouvement extends CommonGLPI {
       // ---- Tableau des résultats ----
 	  // ---- Champ de filtre côté client ----
 echo '<div style="text-align:center; font-size:20px; font-weight:bold;">' . __('MOUVEMENT', 'mouvements') . '</div>';
-
-
 echo '<div style="display:flex; justify-content:space-between; align-items:center; margin-top:10px;">';
 echo '  <div style="display:flex; align-items:center; gap:10px;">';
 echo '    <label for="tableFilter" style="font-weight:bold;">' . __('Filtrer le tableau :','mouvements') . '</label>';
@@ -204,7 +428,8 @@ input.addEventListener("keyup", function() {
 </script>';
 
 
-// ---- Script JavaScript pour export Excel
+
+// ---- Script JavaScript pour export Excel movement
       echo "
       <script src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js'></script>
       <script>
@@ -217,11 +442,10 @@ input.addEventListener("keyup", function() {
          });
       </script>
       ";
-	  
+	 
 
    }
-
-
+   
 
    // ================== SQL builder ==================
    private static function buildGlobalSQL($currentType, $currentId, $limit = 1000) {   

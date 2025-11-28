@@ -64,7 +64,7 @@ class PluginMouvementsProfile extends CommonDBTM {
       
       echo "<table class='tab_cadre_fixehov'>";
       echo "<tr class='tab_bg_1'>";
-      echo "<th colspan='4'>" . __('Droits du plugin Mouvements', 'mouvements') . "</th>";
+      echo "<th colspan='4'>" . __('Permission du plugin Mouvements', 'mouvements') . "</th>";
       echo "</tr>";
       
       foreach ($rights as $right) {
