@@ -17,7 +17,7 @@
    <long>
 <fr>
 * Offre un affichage en grille clair et facile à parcourir les mouvements des équipements (ordinateurs, écrans, imprimantes, périphériques).
-* Consulter l'histaurique des équipements utilisés par un utilisateur donné.
+* Consulter l'historique des équipements utilisés par un utilisateur donné.
 * Consulter l’historique même après la suppression définitive d’un équipement ou d’un utilisateur.
 * Suit l’évolution de l’utilisateur, du lieu et du statut de chaque équipement au fil du temps.
 * Affiche ces informations dans :
