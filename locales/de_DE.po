@@ -1,0 +1,123 @@
+
+msgid ""
+msgstr ""
+"Language-Team: Deutsch\n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Mouvements"
+msgstr "Bewegungen"
+ 
+msgid "Filtres du rapport"
+msgstr "Berichtsfilter"
+ 
+msgid "Date début"
+msgstr "Startdatum"
+ 
+msgid "Date fin"
+msgstr "Enddatum"
+ 
+msgid "Type de rapport"
+msgstr "Berichtstyp"
+ 
+msgid "Utilisateur"
+msgstr "Benutzer"
+ 
+msgid "Lieu"
+msgstr "Position"
+ 
+msgid "Statut"
+msgstr "Status"
+ 
+msgid "Numéro inventaire"
+msgstr "Inventarnummer"
+ 
+msgid "Aucun mouvement trouvé"
+msgstr "keine Bewegung gefunden"
+ 
+msgid "Type équipement"
+msgstr "Gerätetyp"
+ 
+msgid "N°Inv"
+msgstr "N° Inv"
+
+msgid "N°S"
+msgstr "S/N - Seriennummer"
+ 
+msgid "Nom"
+msgstr "Name"
+ 
+msgid "Type mouvement"
+msgstr "Art der Bewegung"
+ 
+msgid "Date"
+msgstr "Datum"
+ 
+msgid "Ancienne valeur"
+msgstr "vorheriger Wert"
+ 
+msgid "Nouvelle valeur"
+msgstr "neuer Wert"
+ 
+msgid "Utilisateur@instant"
+msgstr "aktueller Benutzer"
+ 
+msgid "Lieu@instant"
+msgstr "aktuelle Position"
+ 
+msgid "Statut@instant"
+msgstr "aktueller Status"
+ 
+msgid "Modificateur"
+msgstr "geändert von"
+ 
+msgid "Exporter vers Excel"
+msgstr "in Excel exportieren"
+ 
+msgid "Générer"
+msgstr "erzeugen"
+ 
+msgid "Clé de mouvement"
+msgstr "Suche Bewegungen nach..."   
+ 
+msgid "Filtres des mouvements"
+msgstr "Bewegungen filtern"
+ 
+msgid "Tous les types"
+msgstr "Alle Typen"
+ 
+msgid "Par utilisateur"
+msgstr "nach Benutzer"
+ 
+msgid "Par inventaire"
+msgstr "nach Inventar"
+ 
+msgid "Par lieu"
+msgstr "nach Position"
+ 
+msgid "Par statut"
+msgstr "nach Status"
+ 
+msgid "Tapez pour filtrer..."
+msgstr "zum Filtern bitte eingeben.."
+ 
+msgid "Filtrer le tableau :"
+msgstr "Tabelle filtern:"
+ 
+msgid "Ordinateur"
+msgstr "Computer"
+ 
+msgid "Ecran"
+msgstr "Monitor"
+ 
+msgid "Imprimante"
+msgstr "Drucker"
+ 
+ 
+msgid "Périphérique"
+msgstr "Peripheriegerät"
+ 
+msgid "Aucun mouvement trouvé dans la base"
+msgstr "keine Bewegung gefunden"

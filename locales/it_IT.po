@@ -10,6 +10,12 @@ msgstr ""
 msgid "Mouvements"
 msgstr "Movementazioni"
 
+msgid "MOUVEMENT"
+msgstr "Movimenti"
+
+msgid "Permission du plugin Mouvements"
+msgstr "Diritti del plugin Movimenti"
+
 msgid "Filtres du rapport"
 msgstr "Report filtri"
 

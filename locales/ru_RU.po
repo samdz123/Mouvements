@@ -1,0 +1,118 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ru_RU\n"
+
+msgid "Mouvements"
+msgstr "Перемещения"
+
+msgid "MOUVEMENT"
+msgstr "ПЕРЕМЕЩЕНИЯ"
+
+msgid "Permission du plugin Mouvements"
+msgstr "Разрешения плагина Перемещения"
+
+msgid "Filtres du rapport"
+msgstr "Фильтры отчетов"
+
+msgid "Date début"
+msgstr "Дата начала"
+
+msgid "Date fin"
+msgstr "Дата окончания"
+
+msgid "Type de rapport"
+msgstr "Тип отчета"
+
+msgid "Utilisateur"
+msgstr "Пользователь"
+
+msgid "Lieu"
+msgstr "Расположение"
+
+msgid "Statut"
+msgstr "Статус"
+
+msgid "Numéro inventaire"
+msgstr "Инвентарный номер"
+
+msgid "Aucun mouvement trouvé"
+msgstr "Перемещений не обнаружено"
+
+msgid "Type équipement"
+msgstr "Тип оборудования"
+
+msgid "N°Inv"
+msgstr "Инвентарный №"
+
+msgid "Nom"
+msgstr "Наименование"
+
+msgid "Type mouvement"
+msgstr "Тип перемещения"
+
+msgid "Date"
+msgstr "Дата"
+
+msgid "Ancienne valeur"
+msgstr "Старое значение"
+
+msgid "Nouvelle valeur"
+msgstr "Новое значение"
+
+msgid "Utilisateur@instant"
+msgstr "Пользователь"
+
+msgid "Lieu@instant"
+msgstr "Местоположение"
+
+msgid "Statut@instant"
+msgstr "Статус"
+
+msgid "Modificateur"
+msgstr "Модификатор"
+
+msgid "Exporter vers Excel"
+msgstr "Экспорт в Excel"
+
+msgid "Générer"
+msgstr "Генерировать"
+
+msgid "Clé de mouvement"
+msgstr "Ключ перемещения"
+
+msgid "Filtres des mouvements"
+msgstr "Фильтры перемещений"
+
+msgid "Tous les types"
+msgstr "Все типы"
+
+msgid "Par utilisateur"
+msgstr "По пользователю"
+
+msgid "Par inventaire"
+msgstr "По инвентарю"
+
+msgid "Par lieu"
+msgstr "По местоположению"
+
+msgid "Par statut"
+msgstr "По статусу"
+
+msgid "Tapez pour filtrer..."
+msgstr "Введите для фильтрации..."
+
+msgid "Filtrer le tableau :"
+msgstr "Фильтр таблицы :"
+
+msgid "Ordinateur"
+msgstr "Компьютер"
+
+msgid "Ecran"
+msgstr "Монитор"
+
+msgid "Imprimante"
+msgstr "Принтер"
+
+msgid "Périphérique"
+msgstr "Устройство"

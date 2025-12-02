@@ -1,0 +1,15 @@
+msgfmt ar_SA.po -o ar_SA.mo
+
+msgfmt es_ES.po -o es_ES.mo
+
+msgfmt es_ES.po -o mouvements.mo
+
+msgfmt en_GB.po -o en_GB.mo
+
+
+msgfmt fr_FR.po -o fr_FR.mo
+
+
+msgfmt it_IT.po -o it_IT.mo
+
+msgfmt ru_RU.po -o ru_RU.mo
