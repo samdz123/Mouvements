@@ -126,7 +126,6 @@ static function showEquipmentHistoryForUser(CommonGLPI $user): void {
     //echo "<h2>" . __('Historique des équipements utilisés par l’utilisateur <<', 'mouvements') . "  " . $user_name . " >> " . "</h2>";
     
     // Requête SQL pour récupérer l'historique des équipements
-    // Inspirée de reporting.php et utilisant glpi_logs
     $query = [
         'SELECT' => [
             'l.id',
@@ -179,6 +178,7 @@ static function showEquipmentHistoryForUser(CommonGLPI $user): void {
 'WHERE' => [
     'AND' => [
         'l.itemtype' => ['Computer', 'Printer', 'Monitor', 'Peripheral'],
+		'l.id_search_option' => ['70'],
         'OR' => [
             
 			['l.new_value' => ['LIKE', '%' . $user_name . '%']],
