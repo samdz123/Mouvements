@@ -60,7 +60,7 @@ function plugin_init_mouvements() {
 function plugin_version_mouvements() {
    return [
       'name'           => __('Mouvements', 'mouvements'),
-      'version'        => '1.4.0',
+      'version'        => '1.4.2',
       'author'         => 'Saad Meslem',
       'license'        => 'GPLv3+',
       'homepage'       => "'https://github.com/samdz123/Mouvements'",
