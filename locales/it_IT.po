@@ -8,7 +8,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Mouvements"
-msgstr "Movementazioni"
+msgstr "Trasferimenti"
 
 msgid "MOUVEMENT"
 msgstr "Movimenti"
@@ -17,7 +17,7 @@ msgid "Permission du plugin Mouvements"
 msgstr "Diritti del plugin Movimenti"
 
 msgid "Filtres du rapport"
-msgstr "Report filtri"
+msgstr "Filtri"
 
 msgid "Date début"
 msgstr "Data di inizio"
@@ -38,25 +38,25 @@ msgid "Statut"
 msgstr "Stato"
 
 msgid "Numéro inventaire"
-msgstr "Numero di iventario"
+msgstr "Numero d'inventario"
 
 msgid "Aucun mouvement trouvé"
-msgstr "Nessun movimentazione trovata"
+msgstr "Nessun trasferimento trovato"
 
 msgid "Type équipement"
-msgstr "Tipo di Device"
+msgstr "Tipo di dispositivo"
 
 msgid "N°Inv"
-msgstr "N° Inv"
+msgstr "N° inventario"
 
 msgid "N°S"
-msgstr "N° Seriale"
+msgstr "N° seriale"
 
 msgid "Nom"
 msgstr "Nome"
 
 msgid "Type mouvement"
-msgstr "Tipo di movimentazione"
+msgstr "Tipo di trasferimento"
 
 msgid "Date"
 msgstr "Data"
@@ -65,7 +65,7 @@ msgid "Ancienne valeur"
 msgstr "Valore precedente"
 
 msgid "Nouvelle valeur"
-msgstr "Nuovo valore"
+msgstr "Valore attuale"
 
 msgid "Utilisateur@instant"
 msgstr "Utente attuale"
@@ -83,13 +83,13 @@ msgid "Exporter vers Excel"
 msgstr "Esporta in Excel"
 
 msgid "Générer"
-msgstr "Generare"
+msgstr "Crea"
 
 msgid "Clé de mouvement"
-msgstr "Ricerca Movimentazione per.."
+msgstr "Ricerca trasferimento"
 
 msgid "Filtres des mouvements"
-msgstr "Filtra movimentazioni"
+msgstr "Filtra trasferimenti"
 
 msgid "Tous les types"
 msgstr "Tutti i tipi"
@@ -98,10 +98,10 @@ msgid "Par utilisateur"
 msgstr "Per utente"
 
 msgid "Par inventaire"
-msgstr "Per Inventario"
+msgstr "Per inventario"
 
 msgid "Par lieu"
-msgstr "Per Posizione"
+msgstr "Per posizione"
 
 msgid "Par statut"
 msgstr "Per stato"
@@ -110,7 +110,7 @@ msgid "Tapez pour filtrer..."
 msgstr "Digita per filtrare..."
 
 msgid "Filtrer le tableau :"
-msgstr "Filtra la tabella :"
+msgstr "Filtra la tabella:"
 
 msgid "Ordinateur"
 msgstr "Computer"
@@ -125,4 +125,4 @@ msgid "Périphérique"
 msgstr "Periferica"
 
 msgid "Aucun mouvement trouvé dans la base"
-msgstr "Nessuna movimentazione trovata"
+msgstr "Nessun trasferimento trovato"
