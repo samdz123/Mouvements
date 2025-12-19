@@ -6,8 +6,12 @@ if (!defined('GLPI_ROOT')) {
 
 class PluginMouvementsInitialValue extends CommonDBTM {
 
-   static $table = 'glpi_plugin_mouvements_initialvalues';
-
+    static $table = 'glpi_plugin_mouvements_initialvalues';
+	
+	static function sqlValue($value) {
+    global $DB;
+    return "'" . $DB->escape($value) . "'";
+}
    static function saveInitialValue($itemtype, $items_id, $field, $value) {
       global $DB;
 
@@ -21,17 +25,19 @@ class PluginMouvementsInitialValue extends CommonDBTM {
          'FROM'  => self::$table,
          'WHERE' => $crit
       ]);
+	  
 
       if (count($res) === 0) {
          $DB->insertOrDie(self::$table, [
             'itemtype'      => $itemtype,
             'items_id'      => $items_id,
             'field'         => $field,
-            'initial_value' => $value
+            'initial_value' => str_replace("'", "’", $value)
          ]);
       }
    }
 
+	
    static function getInitialValue($itemtype, $items_id, $field) {
       global $DB;
 
