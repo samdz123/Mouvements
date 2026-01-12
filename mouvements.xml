@@ -15,98 +15,57 @@
 <ru>Централизованная, структурированная и удобочитаемая история с фильтрами и возможностями экспорта перемещений оборудования по пользователю, местоположению и статусу, даже после окончательного удаления оборудования или пользователей.</ru>
 
 </short>
-   <long>
+  <long>
 <fr>
-* Offre un affichage en grille clair et facile à parcourir les mouvements des équipements (ordinateurs, écrans, imprimantes, périphériques).
-* Consulter l'historique des équipements utilisés par un utilisateur donné.
-* Consulter l’historique même après la suppression définitive d’un équipement ou d’un utilisateur.
-* Suit l’évolution de l’utilisateur, du lieu et du statut de chaque équipement au fil du temps.
-* Affiche ces informations dans :
-  - un onglet Mouvements sur chaque fiche d’équipement ;
-  - un onglet Mouvements sur chaque fiche Utilisateur ;
-  - un tableau de bord centralisé (menu Outils) avec filtres avancés : période, inventaire, utilisateur, lieu, statut.
-* Offre un export Excel pour faciliter le reporting et les audits.
+* Afficher l’historique des déplacements et des changements de statut des équipements informatiques.
+* Afficher l’historique d’utilisation des équipements par utilisateur.
+* Conserver l’historique même après la suppression définitive d’un équipement ou d’un utilisateur.
+* Permettre l’export vers Excel afin de faciliter le reporting et les audits.
 </fr>
 
 <en>
-* Provides a complete history of equipment movements (computers, monitors, printers, peripherals).
-* Keeps the history even after the permanent deletion of equipment or users.
-* Allows viewing the history of equipment used by a specific user.
-* Tracks the evolution of user, location, and status for each device over time.
-* Displays this information in:
-  - a Movements tab on each equipment record;
-  - a Movements tab on each User record;
-* a centralized dashboard (Tools menu) with advanced filters: period, inventory, user, location, status.
-* Offers a clear and easy-to-read grid display.
-* Provides Excel export for reporting and audits.
+* Display the history of movements and status changes of IT equipment.
+* Display the usage history of equipment by user.
+* Keep the history even after the permanent deletion of an equipment or a user.
+* Allow export to Excel to facilitate reporting and audits.
 </en>
 
 <es>
-* Proporciona un historial completo de los movimientos de los equipos (ordenadores, pantallas, impresoras, periféricos).
-* Conserva el historial incluso después de la eliminación definitiva de equipos o usuarios.
-* Permite consultar el historial de los equipos utilizados por un usuario específico.
-* Rastrea la evolución del usuario, la ubicación y el estado de cada equipo a lo largo del tiempo.
-* Muestra esta información en:
-  - una pestaña Movimientos en cada ficha de equipo;
-  - una pestaña Movimientos en cada ficha de Usuario;
-* un panel centralizado (menú Herramientas) con filtros avanzados: período, inventario, usuario, ubicación, estado.
-* Ofrece una vista en cuadrícula clara y fácil de recorrer.
-* Proporciona exportación a Excel para informes y auditorías.
+* Mostrar el historial de desplazamientos y cambios de estado de los equipos informáticos.
+* Mostrar el historial de uso de los equipos por usuario.
+* Conservar el historial incluso después de la eliminación definitiva de un equipo o un usuario.
+* Permitir la exportación a Excel para facilitar los informes y las auditorías.
 </es>
 
 <it>
-* Fornisce uno storico completo dei movimenti delle apparecchiature (computer, monitor, stampanti, periferiche).
-* Conserva lo storico anche dopo l’eliminazione definitiva di apparecchiature o utenti.
-* Consente di consultare lo storico delle apparecchiature utilizzate da un determinato utente.
-* Tiene traccia dell’evoluzione dell’utente, della posizione e dello stato di ogni apparecchiatura nel tempo.
-* Mostra queste informazioni in:
-  - una scheda Movimenti su ogni dispositivo;
-  - una scheda Movimenti su ogni scheda Utente;
-* una dashboard centralizzata (menu Strumenti) con filtri avanzati: periodo, inventario, utente, posizione, stato.
-* Offre una visualizzazione a griglia chiara e facile da consultare.
-* Fornisce l’esportazione Excel per reporting e audit.
+* Visualizzare lo storico degli spostamenti e dei cambi di stato delle apparecchiature informatiche.
+* Visualizzare lo storico di utilizzo delle apparecchiature per utente.
+* Conservare lo storico anche dopo l’eliminazione definitiva di un’apparecchiatura o di un utente.
+* Consentire l’esportazione in Excel per facilitare il reporting e gli audit.
 </it>
 
 <ar>
-* يوفر سجلاً كاملاً لتحركات الأجهزة (الحواسيب، الشاشات، الطابعات، الملحقات).
-* يحتفظ بالسجل حتى بعد الحذف النهائي للأجهزة أو المستخدمين.
-* يسمح بعرض سجل الأجهزة التي استخدمها مستخدم معيّن.
-* يتتبع تطور المستخدم والموقع والحالة لكل جهاز عبر الزمن.
-* يعرض هذه المعلومات في:
-  - تبويب "الحركات" في صفحة كل جهاز؛
-  - تبويب "الحركات" في صفحة كل مستخدم؛
-* لوحة تحكم مركزية (قائمة الأدوات) مع فلاتر متقدمة: الفترة، الجرد، المستخدم، الموقع، الحالة.
-* يوفر عرضاً شبكياً واضحاً وسهل التصفح.
-* يقدم تصدير Excel لتسهيل التقارير وعمليات التدقيق.
+* عرض سجلّ التنقلات وتغييرات حالة معدات تكنولوجيا المعلومات.
+* عرض سجلّ استخدام المعدات حسب المستخدم.
+* الاحتفاظ بالسجل حتى بعد الحذف النهائي لمعدة أو مستخدم.
+* إتاحة التصدير إلى Excel لتسهيل التقارير وعمليات التدقيق.
 </ar>
 
 <de>
-* Bietet eine vollständige Historie der Gerätebewegungen (Computer, Monitore, Drucker, Peripheriegeräte).
-* Bewahrt die Historie auch nach dem endgültigen Löschen von Geräten oder Benutzern.
-* Ermöglicht die Einsicht in die von einem bestimmten Benutzer verwendeten Geräte.
-* Verfolgt die Entwicklung von Benutzer, Standort und Status jedes Geräts im Laufe der Zeit.
-* Zeigt diese Informationen in:
-  - einem Reiter „Bewegungen“ auf jedem Geräteeintrag;
-  - einem Reiter „Bewegungen“ auf jedem Benutzereintrag;
-* einem zentralisierten Dashboard (Menü Werkzeuge) mit erweiterten Filtern: Zeitraum, Inventar, Benutzer, Standort, Status.
-* Bietet eine klare und leicht zu durchsuchende Rasteransicht.
-* Ermöglicht einen Excel-Export für Berichte und Audits.
+* Anzeige der Historie von Bewegungen und Statusänderungen von IT-Geräten.
+* Anzeige der Nutzungshistorie der Geräte pro Benutzer.
+* Beibehaltung der Historie auch nach der endgültigen Löschung eines Geräts oder eines Benutzers.
+* Export nach Excel zur Vereinfachung von Reporting und Audits.
 </de>
-	   
+
 <ru>
-* Предоставляет полную историю перемещений оборудования (компьютеров, мониторов, принтеров, периферийных устройств).
-* Сохраняет историю даже после безвозвратного удаления оборудования или пользователей.
-* Позволяет просматривать историю оборудования, используемого конкретным пользователем.
-* Отслеживает динамику пользователя, местоположения и статуса каждого устройства с течением времени.
-* Отображает эту информацию в:
-- вкладке «Перемещения» для каждой записи об оборудовании;
-- вкладке «Перемещения» для каждой записи о пользователе;
-* централизованной панели инструментов (меню «Инструменты») с расширенными фильтрами: период, инвентарь, пользователь, местоположение, статус.
-* Предлагает наглядное и удобное отображение в виде таблицы.
-* Возможность экспорта в Excel для создания отчетов и аудита.
+* Отображение истории перемещений и изменений статуса ИТ-оборудования.
+* Отображение истории использования оборудования по пользователям.
+* Сохранение истории даже после окончательного удаления оборудования или пользователя.
+* Возможность экспорта в Excel для упрощения отчетности и аудита.
 </ru>
-	   
-   </long>
+</long>
+
 </description>
 
    <homepage>https://github.com/samdz123/Mouvements</homepage>
@@ -288,6 +247,7 @@
 	  <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot05.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
