@@ -6,14 +6,33 @@
 
    <description>
    <short>
-<en>Centralized, structured and readable history with filters and export options for equipment movements by user, location and status, even after the permanent deletion of equipment or users.</en>
-<fr>Consultation centralisée, structurée et lisible, avec filtres et exportation, des mouvements d’équipements par rapport à l'utilisateur, au lieu et au statut, même après une suppression définitive d’équipements ou d’utilisateurs.</fr>
-<es>Historial centralizado, estructurado y claro, con filtros y opciones de exportación, de los movimientos de los equipos según el usuario, la ubicación y el estado, incluso después de la eliminación definitiva de equipos o usuarios.</es>
-<it>Storico centralizzato, strutturato e leggibile, con filtri e opzioni di esportazione, dei movimenti delle apparecchiature in base all’utente, alla posizione e allo stato, anche dopo l’eliminazione definitiva di apparecchiature o utenti.</it>
-<ar>سجل مركزي ومنظم وواضح لتحركات الأجهزة حسب المستخدم والموقع والحالة، مع مرشحات وخيارات تصدير، حتى بعد الحذف النهائي للأجهزة أو المستخدمين.</ar>
-<de>Zentralisierte, strukturierte und übersichtliche Historie mit Filter- und Exportoptionen für Gerätebewegungen nach Benutzer, Standort und Status, selbst nach dem endgültigen Löschen von Geräten oder Benutzern.</de>
-<ru>Централизованная, структурированная и удобочитаемая история с фильтрами и возможностями экспорта перемещений оборудования по пользователю, местоположению и статусу, даже после окончательного удаления оборудования или пользователей.</ru>
+<fr>
+Affichage structuré de l’historique des déplacements, des changements de statut et de l’utilisation des équipements informatiques par utilisateur, avec conservation de la traçabilité et export Excel.
+</fr>
 
+<en>
+Structured display of the history of movements, status changes, and usage of IT equipment by user, with traceability retention and Excel export.
+</en>
+
+<es>
+Visualización estructurada del historial de desplazamientos, cambios de estado y uso de los equipos informáticos por usuario, con conservación de la trazabilidad y exportación a Excel.
+</es>
+
+<it>
+Visualizzazione strutturata dello storico degli spostamenti, dei cambi di stato e dell’utilizzo delle apparecchiature informatiche per utente, con conservazione della tracciabilità ed esportazione in Excel.
+</it>
+
+<ar>
+عرض منظم لسجل التنقلات وتغييرات الحالة واستخدام معدات تكنولوجيا المعلومات حسب المستخدم، مع الاحتفاظ بإمكانية التتبع والتصدير إلى Excel.
+</ar>
+
+<de>
+Strukturierte Anzeige der Historie von Bewegungen, Statusänderungen und der Nutzung von IT-Geräten pro Benutzer, mit Erhalt der Nachverfolgbarkeit und Excel-Export.
+</de>
+
+<ru>
+Структурированное отображение истории перемещений, изменений статуса и использования ИТ-оборудования по пользователям с сохранением трассируемости и экспортом в Excel.
+</ru>
 </short>
   <long>
 <fr>
@@ -247,6 +266,7 @@
 	  <screenshot>https://raw.githubusercontent.com/samdz123/Mouvements/main/screenshot05.png</screenshot>
    </screenshots>
 </root>
+
 
 
 
