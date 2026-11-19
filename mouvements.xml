@@ -97,6 +97,12 @@ Strukturierte Anzeige der Historie von Bewegungen, Statusänderungen und der Nut
    </authors>
 
    <versions>
+   <version>
+         <num>v1.4.4</num>
+         <compatibility>~10.0.x</compatibility>
+		 <compatibility>~11.0.2</compatibility>
+         <download_url>https://github.com/samdz123/Mouvements/releases/download/v1.4.4/mouvements.1.4.4.zip</download_url>
+    </version>
 	<version>
          <num>v1.4.3</num>
          <compatibility>~10.0.x</compatibility>
